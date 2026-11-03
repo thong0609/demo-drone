@@ -1,0 +1,32 @@
+{
+  "mean_cycle_seconds": 1.0024401449778908,
+  "p95_cycle_seconds": 1.8109120160006569,
+  "max_cycle_seconds": 2.3012743270010105,
+  "local_solver_status_counts": {
+    "optimal": 9148,
+    "feasible_inexact": 162,
+    "residual_exceeded": 40
+  },
+  "negotiation_round_counts": {
+    "1": 363
+  },
+  "prediction_error": {
+    "1": {
+      "samples": 9215,
+      "rmse": 0.1867786885228719,
+      "maximum": 2.796104507237738
+    },
+    "2": {
+      "samples": 9080,
+      "rmse": 0.5133154387113533,
+      "maximum": 6.66931987624907
+    },
+    "3": {
+      "samples": 8945,
+      "rmse": 1.0420797416506535,
+      "maximum": 11.330376817327036
+    }
+  },
+  "timing_scope": "All accepted outer updates; full mission completed.",
+  "plan_error_scope": "Deviation from earlier published plan, including subsequent replanning."
+}

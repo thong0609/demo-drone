@@ -1,0 +1,14 @@
+{
+  "vector_field_full_initial_states_identical": true,
+  "vector_field_inner_unchanged": true,
+  "vector_field_dynamics_unchanged": true,
+  "vector_field_simulation_unchanged": true,
+  "vector_field_outer_unchanged": true,
+  "vector_field_tube_identical": true,
+  "dmpc_full_initial_states_identical": true,
+  "dmpc_inner_unchanged": true,
+  "dmpc_dynamics_unchanged": true,
+  "dmpc_simulation_unchanged": true,
+  "dmpc_outer_unchanged": true,
+  "dmpc_tube_identical": true
+}

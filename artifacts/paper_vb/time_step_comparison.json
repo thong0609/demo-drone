@@ -1,0 +1,42 @@
+{
+  "paper_vb": {
+    "dt": 0.02,
+    "completed": 27,
+    "finish_time": 60.62420061710494,
+    "min_pair_distance": 11.99999999999999,
+    "max_pair_distance": 100.33112828344606,
+    "min_boundary_clearance": 8.795584709349697,
+    "max_speed": 12.522877635843624,
+    "max_input": 29.585605792641232,
+    "violation_steps": {
+      "pair_safety": 0,
+      "boundary_safety": 0,
+      "cohesion": 0,
+      "actual_speed": 2488,
+      "obstacle_safety": 0,
+      "input_saturation": 0,
+      "command_speed": 0
+    }
+  },
+  "paper_vb_dt001": {
+    "dt": 0.01,
+    "completed": 27,
+    "finish_time": 60.58231156828839,
+    "min_pair_distance": 11.99999999999999,
+    "max_pair_distance": 99.56781158132033,
+    "min_boundary_clearance": 8.905431111304896,
+    "max_speed": 12.444836457834251,
+    "max_input": 29.585605792641232,
+    "violation_steps": {
+      "pair_safety": 0,
+      "boundary_safety": 0,
+      "cohesion": 0,
+      "actual_speed": 5034,
+      "obstacle_safety": 0,
+      "input_saturation": 0,
+      "command_speed": 0
+    }
+  },
+  "same_benchmark": true,
+  "interpretation": "Observed sensitivity at dt=0.02 and 0.01; both complete, both violate actual speed. This is not a proof of asymptotic convergence."
+}

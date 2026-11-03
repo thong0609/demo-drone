@@ -1,0 +1,35 @@
+{
+  "mean_cycle_seconds": 0.885672824234144,
+  "p95_cycle_seconds": 1.9802475149990642,
+  "max_cycle_seconds": 4.207418050998967,
+  "local_solver_status_counts": {
+    "optimal": 6826,
+    "feasible_inexact": 73,
+    "residual_exceeded": 67,
+    "none": 1
+  },
+  "negotiation_round_counts": {
+    "1": 249,
+    "2": 3,
+    "3": 1
+  },
+  "prediction_error": {
+    "1": {
+      "samples": 6696,
+      "rmse": 0.19882647470183157,
+      "maximum": 2.7961042141229977
+    },
+    "2": {
+      "samples": 6561,
+      "rmse": 0.4020359422153451,
+      "maximum": 4.154337632274025
+    },
+    "3": {
+      "samples": 6426,
+      "rmse": 0.7434179203514966,
+      "maximum": 6.554500007939024
+    }
+  },
+  "timing_scope": "Accepted update cycles; final failed negotiation is not separately timed.",
+  "plan_error_scope": "Deviation from earlier published plan; includes subsequent replanning, not model-only error under identical controls."
+}

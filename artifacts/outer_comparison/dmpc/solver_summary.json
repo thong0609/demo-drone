@@ -1,0 +1,12 @@
+{
+  "updates": 363,
+  "local_solves": 9451,
+  "rejected_solves": 40,
+  "fallbacks": 34,
+  "deadline_misses": 353,
+  "total_solver_seconds": 171.56582741796228,
+  "max_solver_seconds": 0.1453768300016236,
+  "terminated_infeasible": false,
+  "buffer_relaxations": 3473,
+  "max_buffer_relaxation": 0.1838178228494617
+}

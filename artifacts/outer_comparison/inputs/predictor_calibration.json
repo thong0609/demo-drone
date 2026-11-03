@@ -1,0 +1,22 @@
+{
+  "tau_velocity": 0.23428191970353301,
+  "training": "12 s separate step excitation; positive least squares fit",
+  "validation": "independent 12 s command profile, known future commands; zero bias; not a robustness certificate",
+  "errors": {
+    "1": {
+      "samples": 18,
+      "position_rmse": 0.36219860091086836,
+      "max_position_error": 0.6967753695423285
+    },
+    "2": {
+      "samples": 18,
+      "position_rmse": 0.6704058462963801,
+      "max_position_error": 1.30302211828353
+    },
+    "3": {
+      "samples": 18,
+      "position_rmse": 0.7880406101538012,
+      "max_position_error": 1.3544132685827703
+    }
+  }
+}

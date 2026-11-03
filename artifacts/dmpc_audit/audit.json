@@ -1,0 +1,61 @@
+{
+  "result_extrema": {
+    "min_pair_distance": {
+      "recomputed": 10.346973543094439,
+      "reported": 10.346973543094439,
+      "matches": true
+    },
+    "max_pair_distance": {
+      "recomputed": 64.59433428931492,
+      "reported": 64.59433428931492,
+      "matches": true
+    },
+    "min_boundary_clearance": {
+      "recomputed": 13.875502206153618,
+      "reported": 13.875502206153618,
+      "matches": true
+    },
+    "max_speed": {
+      "recomputed": 9.931543390712077,
+      "reported": 9.931543390712077,
+      "matches": true
+    },
+    "max_input": {
+      "recomputed": 29.585605792641232,
+      "reported": 29.585605792641232,
+      "matches": true
+    }
+  },
+  "short_prefix_identical": true,
+  "prefix_rows": 101,
+  "source_hash_mismatches": [],
+  "frames": {
+    "min_pair": 10.348298544386754,
+    "max_speed": 9.929399479922349,
+    "final_active": []
+  },
+  "centerline_terminal_plane_crossing_arcs": [
+    639.1951421133781
+  ],
+  "tube_length": 639.1951421133781,
+  "solver": {
+    "active_set_enumeration": {
+      "cases": 40,
+      "max_solution_error": 3.0348361701848736e-09,
+      "passed": true
+    },
+    "known_KKT_31_variables": {
+      "cases": 12,
+      "max_solution_error": 8.40624514560982e-10,
+      "passed": true
+    }
+  },
+  "findings": {
+    "radial_clearance_counterexample": {
+      "radial": 5.0,
+      "true_lateral_surface_distance": 4.47213595499958,
+      "meaning": "Radial clearance >=5 does not imply Euclidean tube-surface distance >=5."
+    }
+  },
+  "scope": "Audit samples and saved results, not proof of continuous safety or paper-exact reproduction."
+}

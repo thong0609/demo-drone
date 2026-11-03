@@ -1,0 +1,11 @@
+{
+  "differences": {
+    "finish_time": 0.0,
+    "min_pair_distance": 0.0,
+    "max_pair_distance": 0.0,
+    "min_boundary_clearance": 0.0,
+    "max_speed": 0.0,
+    "max_input": 0.0
+  },
+  "passed": true
+}

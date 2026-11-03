@@ -1,0 +1,160 @@
+{
+  "name": "paper_vb_custom_world",
+  "scenario": "configs/scenarios/benchmark_v1.json",
+  "seed": 17,
+  "planner": {
+    "iterations": 1000,
+    "step": 60,
+    "neighbor_radius": 110,
+    "goal_bias": 0.16,
+    "goal_radius": 75,
+    "clearance": 36,
+    "edge_spacing": 5,
+    "lambda1": 1,
+    "lambda2": 0.4,
+    "sdf_kappa": 1,
+    "corridor_half_width": 60,
+    "snap_gamma": 2,
+    "sample_spacing": 1.2,
+    "radius_floor": 18,
+    "radius_margin": 5
+  },
+  "outer": {
+    "vm": 11,
+    "rs": 5,
+    "ra": 10,
+    "ls": 100,
+    "lm": 150,
+    "k1": 1,
+    "lp": 20,
+    "k2": 300,
+    "k3": 250,
+    "k4": 3,
+    "delta_n": 0.01,
+    "delta_t": 0.01
+  },
+  "inner": {
+    "P": [
+      9.2,
+      9.2,
+      10.2
+    ],
+    "C": [
+      1.9,
+      1.9,
+      2
+    ],
+    "K": [
+      1.4,
+      1.4,
+      1.5
+    ],
+    "gamma_a": 0.3,
+    "gamma_c": 0.3,
+    "eta1": 1.1,
+    "eta2": 1.1,
+    "filter_tau": 0.15,
+    "Ka": 2,
+    "robust_smoothing": 0.5,
+    "Q": 10,
+    "eta3": 1,
+    "rbf_width": 1.5,
+    "rbf_centers": [
+      -1,
+      0,
+      1
+    ],
+    "feature_scales": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      15,
+      15,
+      15
+    ]
+  },
+  "dynamics": {
+    "mass": 1,
+    "drag": [
+      0.12,
+      0.12,
+      0.15
+    ],
+    "gravity": 9.81,
+    "input_limit": [
+      30,
+      30,
+      30
+    ],
+    "uncertainty_amplitude": 0.15,
+    "disturbance_amplitude": 0.25
+  },
+  "simulation": {
+    "dt": 0.02,
+    "duration": 100,
+    "record_interval": 0.2,
+    "initial_stations": [
+      16,
+      30,
+      44
+    ],
+    "grid_spacing": 12,
+    "initial_speed": 0,
+    "stop_on_violation": false
+  },
+  "provenance": {
+    "paper_parameters": [
+      "scenario.bounds",
+      "scenario.start",
+      "scenario.goal",
+      "scenario.tube.max_radius",
+      "outer.vm",
+      "outer.rs",
+      "outer.ra",
+      "outer.ls",
+      "outer.lm",
+      "inner.P",
+      "inner.C",
+      "inner.K",
+      "inner.gamma_a",
+      "inner.gamma_c",
+      "inner.eta1",
+      "inner.eta2"
+    ],
+    "assumptions": "Custom obstacle layout; all other planner settings, gains, physical parameters, RBF architecture, initial states, disturbances, integration and exit handling are explicit reproduction choices, not values reported in the paper."
+  },
+  "controller_name": "DMPC (static tube, velocity reference)",
+  "dmpc": {
+    "horizon": 30,
+    "prediction_dt": 0.1,
+    "move_blocks": 10,
+    "update_period": 0.2,
+    "initial_hold": 0.02,
+    "tau_velocity": 0.23428191970353301,
+    "cruise_speed": 9.0,
+    "position_weight": 0.15,
+    "velocity_weight": 1,
+    "command_weight": 0.05,
+    "slew_weight": 1.5,
+    "command_rate": 12,
+    "speed_margin": 0.5,
+    "boundary_margin": 1,
+    "pair_margin": 0.5,
+    "tube_facets": 12,
+    "collision_activation": 24,
+    "coordination_rounds": 3,
+    "scp_iterations": 3,
+    "qp_sweeps": 1500,
+    "qp_tolerance": 0.0002,
+    "validation_tolerance": 0.02,
+    "bias_filter_tau": 0.4,
+    "bias_limit": 4,
+    "cohesion_weight": 0.001,
+    "pair_hard_margin": 0.1,
+    "pair_buffer_weight": 200,
+    "pair_buffer_decay": 0.7
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "drone_bench/algorithms/controllers/paper_inner.py": "eb42ee9ef735ae4123db6f30422ae3109bf10853ae2753ad2b8903b44f5bf35f",
+  "drone_bench/simulation/dynamics.py": "2a7be44108205f932d5fe95e93190b8f4fcb04fe1999b9d72947911deba6b41f",
+  "drone_bench/algorithms/controllers/dmpc/reference.py": "dc87ca885db7a7d7435e8f80177304cc5b22f2f4b0344bd58e7ca6d0e26fda43",
+  "drone_bench/algorithms/controllers/dmpc/calibration.py": "7130506004b97073d0c1f17f4f5ce80224f2f7e471b0eda5849036c352bfd1a9",
+  "drone_bench/algorithms/controllers/dmpc/controller.py": "8b0f5856d008fb7e94eb8dbeb459a3e4a582609f8a390abd19d1f1eca61d1e00",
+  "drone_bench/algorithms/controllers/dmpc/__init__.py": "2f193518e408c6bcbc897438f55aeaaf1b99511ae834ab3942924491f4617a11",
+  "drone_bench/algorithms/controllers/dmpc/predictor.py": "672d83134cbb762b93f0f7b5480b991f9e538075961d0a032575503bda920a00",
+  "drone_bench/algorithms/controllers/dmpc/constraints.py": "7eba4dec3f8736f86c7c7e774d10fbea3768f4b7bb3001405f660f20aadc13bd",
+  "drone_bench/algorithms/controllers/dmpc/optimizer.py": "c59441635c8f625788e688a8b9ebd6699d432c986c8132a79ad6c88c3b82b014",
+  "drone_bench/algorithms/controllers/dmpc/qp.c": "5a2668ad06bb9dae7f02354403f9fc49cdbc0418f9c3a95b41d636e22c426963"
+}

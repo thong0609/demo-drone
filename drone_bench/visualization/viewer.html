@@ -1,0 +1,37 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Curve tube · Benchmark 01</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#09121d;color:#e5eff7;font:14px system-ui,sans-serif}header{padding:22px 28px;border-bottom:1px solid #263547;display:flex;justify-content:space-between;gap:24px}h1{font-size:22px;margin:0 0 6px}p{margin:0;color:#9eafc1;line-height:1.6}.tag{color:#67e5c2;font-size:12px;letter-spacing:2px}main{display:grid;grid-template-columns:1fr 290px;height:calc(100vh - 107px);min-height:540px}canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}aside{padding:24px;background:#101d2b;border-left:1px solid #263547}h2{font-size:12px;color:#95acc2;text-transform:uppercase;letter-spacing:1.6px;margin:24px 0 12px}.metric{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #223448}.metric b{color:#67e5c2}label{display:block;margin:14px 0;color:#d1ddeb}input[type=range]{width:100%;accent-color:#67e5c2}button{background:#223b50;color:#e5eff7;border:1px solid #476479;border-radius:6px;padding:9px 14px;cursor:pointer}small{color:#93a9bc;line-height:1.6;display:block;margin-top:16px}#stage{position:relative;min-width:0}.hint{position:absolute;bottom:18px;left:24px;font-size:12px;color:#9ab0c4;pointer-events:none}@media(max-width:760px){main{grid-template-columns:1fr;height:auto}#stage{height:65vh}aside{border-left:0}header{padding:18px}.tag{display:none}}
+</style>
+<header><div><h1>Curve tube <span style="color:#67e5c2">/</span> Benchmark 01</h1><p>Môi trường cố định cho nhiều thuật toán UAV · đơn vị mét</p></div><div class="tag">STATIC ENVIRONMENT<br><span style="letter-spacing:0;color:#9eafc1">500 × 500 × 300 m</span></div></header>
+<main><div id="stage"><canvas id="scene" aria-label="Interactive 3D environment and tube"></canvas><div class="hint">Kéo để xoay · Cuộn để phóng to · Trục X / Y / Z tính bằng mét</div></div><aside>
+<p style="color:#67e5c2">● Tube tham chiếu &nbsp; <span style="color:#edaa77">■ Vật cản</span></p>
+<h2>Hình học tube</h2><div id="metrics"></div>
+<h2>Hiển thị</h2><label><input type="checkbox" id="tube" checked> Bề mặt tube</label><label><input type="checkbox" id="obstacles" checked> Vật cản</label><label><input type="checkbox" id="sections"> Tiết diện</label>
+<label for="progress">Vị trí trên đường tâm <span id="pct">0%</span></label><input id="progress" type="range" min="0" max="400" value="0"><p id="sample"></p>
+<p style="margin-top:18px"><button id="reset">Đặt lại góc nhìn</button></p>
+<small>Bản đồ tự dựng, dùng kích thước và điểm đầu–đích từ mục V-B. Không phải bản sao Hình 7. Tube là đường tham chiếu cố định, chưa chạy bộ lập kế hoạch hay điều khiển.</small>
+</aside></main>
+<script>
+const data=__BENCHMARK_DATA__;
+const c=document.getElementById('scene'),ctx=c.getContext('2d'),config=data.scenario,points=data.tube.points,rings=data.rings;
+let yaw=-0.7,pitch=0.65,zoom=1,drag=null,W,H;
+const ids=['tube','obstacles','sections','progress']; const el=id=>document.getElementById(id);
+el('progress').max=points.length-1;
+el('metrics').innerHTML=[['Chiều dài',data.report.length.toFixed(1)+' m'],['Bán kính nhỏ nhất',data.report.min_radius.toFixed(1)+' m'],['Bán kính lớn nhất',data.report.max_radius.toFixed(1)+' m'],['Dư khoảng cách đã kiểm tra',data.report.certified_obstacle_and_world_margin.toFixed(2)+' m']].map(([a,b])=>`<div class="metric"><span>${a}</span><b>${b}</b></div>`).join('');
+function transform(p){let x=p[0]-250,y=p[1]-250,z=p[2]-130;let a=Math.cos(yaw)*x-Math.sin(yaw)*y,b=Math.sin(yaw)*x+Math.cos(yaw)*y;return [a,Math.cos(pitch)*b-Math.sin(pitch)*z,Math.sin(pitch)*b+Math.cos(pitch)*z]}
+function project(p){let q=transform(p),s=Math.min(W/850,H/680)*zoom;return [W/2+q[0]*s,H/2-q[2]*s,q[1]]}
+function line(arr,color,width=1,close=false){ctx.beginPath();arr.forEach((p,i)=>{let q=project(p);i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1])});if(close)ctx.closePath();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke()}
+function label(p,text,color){let q=project(p);ctx.fillStyle=color;ctx.font='12px system-ui';ctx.fillText(text,q[0]+8,q[1]-8)}
+function box(o){let a=o.min,b=o.max;return [[a[0],a[1],a[2]],[b[0],a[1],a[2]],[b[0],b[1],a[2]],[a[0],b[1],a[2]],[a[0],a[1],b[2]],[b[0],a[1],b[2]],[b[0],b[1],b[2]],[a[0],b[1],b[2]]]}
+function draw(){ctx.clearRect(0,0,W,H);for(let x=0;x<=500;x+=50){line([[x,0,0],[x,500,0]],'#1b2c3b');line([[0,x,0],[500,x,0]],'#1b2c3b')}
+line([[0,0,0],[500,0,0]],'#cc7e86',2);line([[0,0,0],[0,500,0]],'#7ebd9e',2);line([[0,0,0],[0,0,300]],'#7da9df',2);label([500,0,0],'X 500','#cc7e86');label([0,500,0],'Y 500','#7ebd9e');label([0,0,300],'Z 300','#7da9df');
+let faces=[];
+if(el('obstacles').checked)config.obstacles.forEach(o=>{if(o.type==='box'){let v=box(o);[[0,1,2,3],[4,5,6,7],[0,1,5,4],[1,2,6,5],[2,3,7,6],[3,0,4,7]].forEach(f=>faces.push({p:f.map(i=>v[i]),fill:'rgba(206,137,91,.32)',stroke:'rgba(236,172,122,.55)'}))}else{const n=20,m=10;let p=(i,j)=>{let a=i*2*Math.PI/n,b=-Math.PI/2+j*Math.PI/m;return [o.center[0]+o.radius*Math.cos(b)*Math.cos(a),o.center[1]+o.radius*Math.cos(b)*Math.sin(a),o.center[2]+o.radius*Math.sin(b)]};for(let i=0;i<n;i++)for(let j=0;j<m;j++)faces.push({p:[p(i,j),p(i+1,j),p(i+1,j+1),p(i,j+1)],fill:'rgba(206,137,91,.22)',stroke:null})}});
+if(el('tube').checked)for(let i=0;i<rings.length-1;i+=4){let next=Math.min(i+4,rings.length-1);for(let j=0;j<24;j++)faces.push({p:[rings[i][j],rings[i][(j+1)%24],rings[next][(j+1)%24],rings[next][j]],fill:'rgba(73,218,186,.10)',stroke:null})}
+faces.sort((a,b)=>b.p.reduce((s,p)=>s+transform(p)[1],0)/b.p.length-a.p.reduce((s,p)=>s+transform(p)[1],0)/a.p.length);faces.forEach(f=>{ctx.beginPath();f.p.forEach((p,i)=>{let q=project(p);i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1])});ctx.closePath();ctx.fillStyle=f.fill;ctx.fill();if(f.stroke){ctx.strokeStyle=f.stroke;ctx.lineWidth=.6;ctx.stroke()}});
+line(points,'#71edcd',2);if(el('sections').checked)for(let i=0;i<rings.length;i+=20)line(rings[i],'#4c9f94',.8,true);
+let k=+el('progress').value;line(rings[k],'#f6e59b',2,true);let q=project(points[k]);ctx.beginPath();ctx.arc(q[0],q[1],4,0,2*Math.PI);ctx.fillStyle='#fff0a6';ctx.fill();label(config.start,'START','#dceff3');label(config.goal,'GOAL','#dceff3');el('pct').textContent=Math.round(k/(points.length-1)*100)+'%';el('sample').textContent='p = ('+points[k].map(v=>v.toFixed(1)).join(', ')+') · r = '+data.tube.radii[k].toFixed(1)+' m';}
+function resize(){const r=c.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;c.width=W*d;c.height=H*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+c.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];c.setPointerCapture(e.pointerId)});c.addEventListener('pointermove',e=>{if(!drag)return;yaw+=(e.clientX-drag[0])*.008;pitch=Math.max(.08,Math.min(1.5,pitch+(e.clientY-drag[1])*.008));drag=[e.clientX,e.clientY];draw()});c.addEventListener('pointerup',()=>drag=null);c.addEventListener('pointercancel',()=>drag=null);c.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.4,Math.min(4,zoom*Math.exp(-e.deltaY*.001)));draw()},{passive:false});ids.forEach(id=>el(id).addEventListener('input',draw));el('reset').onclick=()=>{yaw=-.7;pitch=.65;zoom=1;draw()};window.addEventListener('resize',resize);resize();
+</script></html>

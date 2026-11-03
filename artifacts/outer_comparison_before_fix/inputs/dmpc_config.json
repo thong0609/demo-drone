@@ -1,0 +1,33 @@
+{
+  "name": "outer_dmpc_v1",
+  "benchmark": "artifacts/paper_vb/benchmark.json",
+  "initial_state": "artifacts/paper_vb/initial_state.json",
+  "base_config": "configs/experiments/paper_vb.json",
+  "dmpc": {
+    "horizon": 30,
+    "prediction_dt": 0.1,
+    "move_blocks": 10,
+    "update_period": 0.2,
+    "initial_hold": 0.02,
+    "tau_velocity": 0.23428191970353301,
+    "cruise_speed": 9.0,
+    "position_weight": 0.15,
+    "velocity_weight": 1,
+    "command_weight": 0.05,
+    "slew_weight": 1.5,
+    "command_rate": 12,
+    "speed_margin": 0.5,
+    "boundary_margin": 1,
+    "pair_margin": 0.5,
+    "tube_facets": 12,
+    "collision_activation": 24,
+    "coordination_rounds": 3,
+    "scp_iterations": 3,
+    "qp_sweeps": 1500,
+    "qp_tolerance": 0.0002,
+    "validation_tolerance": 0.02,
+    "bias_filter_tau": 0.4,
+    "bias_limit": 4,
+    "cohesion_weight": 0.001
+  }
+}

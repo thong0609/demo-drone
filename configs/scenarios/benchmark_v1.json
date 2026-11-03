@@ -1,0 +1,15 @@
+{
+  "id": "curve_tube_benchmark_v1",
+  "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+  "bounds": [[0, 0, 0], [500, 500, 300]],
+  "start": [50, 140, 50], "goal": [460, 390, 170],
+  "safety_radius": 5,
+  "obstacles": [
+    {"id": "block_a", "type": "box", "min": [120, 320, 0], "max": [200, 420, 220]},
+    {"id": "block_b", "type": "box", "min": [200, 70, 0], "max": [310, 190, 210]},
+    {"id": "block_c", "type": "box", "min": [330, 350, 0], "max": [400, 440, 250]},
+    {"id": "sphere_a", "type": "sphere", "center": [90, 420, 140], "radius": 35},
+    {"id": "sphere_b", "type": "sphere", "center": [410, 110, 170], "radius": 45}
+  ],
+  "tube": {"samples": 401, "max_radius": 45, "min_radius": 12, "obstacle_margin": 2, "lateral_amplitude": 65, "vertical_amplitude": 35}
+}

@@ -1,0 +1,10 @@
+{
+  "certified_obstacle_and_world_margin": 3.9971240216521693,
+  "length": 562.5783352838993,
+  "min_radius": 22.814026049495897,
+  "max_radius": 45,
+  "scenario_id": "curve_tube_benchmark_v1",
+  "scenario_sha256": "9ee85a47b326af730e6a0caf3a90fa465d1eb19d050a19ff44f19ee9bea5b4aa",
+  "samples": 401,
+  "safety_radius": 5
+}

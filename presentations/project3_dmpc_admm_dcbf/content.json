@@ -1,0 +1,249 @@
+[
+  {
+    "slide": 3,
+    "title": "DMPC • ADMM • DCBF: BA VAI TRÒ KHÁC NHAU",
+    "texts": [
+      "DMPC • ADMM • DCBF: BA VAI TRÒ KHÁC NHAU",
+      "Ba phần ghép thành một kiến trúc lập kế hoạch và điều khiển có phối hợp.",
+      "xᵢ mô tả tình trạng hiện tại để khởi tạo dự báo; uᵢ là quyết định được tối ưu để tác động lên hệ.\nDMPC lập kế hoạch; ADMM phối hợp các bài toán liên kết; DCBF bổ sung điều kiện duy trì an toàn.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • §4–5",
+      "1",
+      "DMPC — DỰ BÁO",
+      "Mỗi tác nhân tối ưu chuyển động tương lai, có xét thông tin của các lân cận.",
+      "ADMM — PHỐI HỢP",
+      "Chia bài toán liên kết thành các bài toán con; cập nhật để các bản sao nhất quán.",
+      "DCBF — RÀNG BUỘC",
+      "Biểu diễn điều kiện an toàn theo thời gian và đưa vào bài toán tối ưu.",
+      "DCBF nằm trong bài toán DMPC; ADMM là cách giải và phối hợp — không phải ba bộ điều khiển mắc nối tiếp."
+    ],
+    "equations": [],
+    "notes": []
+  },
+  {
+    "slide": 4,
+    "title": "1. DMPC: MÔ HÌNH VÀ CỬA SỔ DỰ BÁO",
+    "texts": [
+      "1. DMPC: MÔ HÌNH VÀ CỬA SỔ DỰ BÁO",
+      "Từ trạng thái hiện tại, dự đoán H bước; chỉ thực hiện hành động đầu tiên.",
+      "fᵢ dự đoán trạng thái kế tiếp từ xᵢ,_t và uᵢ,_t; Xᵢ lưu chuỗi trạng thái, Uᵢ chứa các quyết định cần tìm.\nH quyết định độ dài kế hoạch; Tₛ xác định khoảng cách giữa hai bước; H·Tₛ là thời gian nhìn trước.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • MPC tổng quát",
+      "2",
+      "k",
+      "k+1",
+      "…",
+      "k+H",
+      "H+1 trạng thái dự báo • H đầu vào • Chu kỳ tiếp theo đo lại và tối ưu lại."
+    ],
+    "equations": [
+      "x_{i,t+1} = f_i(x_{i,t},u_{i,t}),   x_{i,0} = x_i(k)",
+      "X_i = (x_{i,0},…,x_{i,H}),   U_i = (u_{i,0},…,u_{i,H−1})"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 5,
+    "title": "1. DMPC: HÀM MỤC TIÊU TỔNG QUÁT",
+    "texts": [
+      "1. DMPC: HÀM MỤC TIÊU TỔNG QUÁT",
+      "Cân bằng tiến về mục tiêu, mức điều khiển, độ mượt và mức nới ràng buộc.",
+      "xᵈ xác định đích cần bám; P,Q ưu tiên sai lệch cuối/dọc dự báo; R hạn chế mức điều khiển; S phạt thay đổi Δu.\nω cho phép nới điều kiện; α phạt mức nới; các chuẩn có trọng số biến từng yêu cầu thành chi phí để tối ưu.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Khái quát từ (13)–(17)",
+      "3",
+      "Đích cuối và sai lệch dọc horizon",
+      "Độ mượt và mức nới ràng buộc",
+      "Các trọng số phải phù hợp đơn vị, thang đo và mục tiêu của hệ đang xét."
+    ],
+    "equations": [
+      "J_i = J_{f,i} + J_{stage,i} + J_{Δu,i} + J_{slack,i}",
+      "J_{f,i} = ‖x_{i,H} − x_i^d‖_P^2",
+      "J_{stage,i} = ∑_{t=0}^{H−1}(‖x_{i,t}−x_i^d‖_Q^2+‖u_{i,t}‖_R^2)",
+      "J_{Δu,i} = ∑_t ‖Δu_{i,t}‖_S^2",
+      "J_{slack,i} = α ∑_t ‖ω_{i,t}‖^2"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 6,
+    "title": "1. DMPC: BÀI TOÁN LOCAL VÀ RECEDING HORIZON",
+    "texts": [
+      "1. DMPC: BÀI TOÁN LOCAL VÀ RECEDING HORIZON",
+      "Mỗi tác nhân giải bài toán riêng, nhưng tránh va chạm phụ thuộc quỹ đạo lân cận.",
+      "Jᵢ xếp hạng các phương án; Xᵢ,Uᵢ,ωᵢ được chọn để giảm chi phí trong khi thỏa các ràng buộc.\nxᵢ(k) neo dự báo vào trạng thái mới nhất; chỉ uᵢ,₀ được thực thi, phần còn lại sẽ được tối ưu lại.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Khái quát từ §4.2",
+      "4",
+      "RÀNG BUỘC",
+      "• Mô hình và điều kiện đầu\n• Giới hạn trạng thái, đầu vào\n• Miền hoạt động / tube\n• DCBF với lân cận, vật cản",
+      "SAU KHI CÓ NGHIỆM",
+      "1. Lấy uᵢ,₀ của nghiệm tối ưu\n2. Thực hiện trên hệ thực\n3. Nhận trạng thái mới\n4. Dịch horizon và giải lại",
+      "Mô hình dự báo phải phản ánh khả năng bám; đầu vào dự báo không tự đồng nhất với chuyển động thực."
+    ],
+    "equations": [
+      "min_{X_i,U_i,ω_i} J_i(X_i,U_i,ω_i)"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 7,
+    "title": "2. ADMM: VÌ SAO CẦN CÁC BẢN SAO?",
+    "texts": [
+      "2. ADMM: VÌ SAO CẦN CÁC BẢN SAO?",
+      "Các bài toán local cùng nhắc tới một quỹ đạo; ADMM làm chúng thống nhất với nhau.",
+      "Yⱼ⁽ⁱ⁾ giúp tác nhân i xét chuyển động của j trong bài toán riêng; Yⱼ làm mốc thống nhất các bản sao về j.\nĐiều kiện bằng nhau loại bỏ bất đồng thông tin về cùng một quỹ đạo, không ép hai UAV bay trùng nhau.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Ý tưởng từ §5.2",
+      "5",
+      "BẢN SAO CỤC BỘ",
+      "UAV i cần dự kiến chuyển động của j để lập kế hoạch tránh va chạm.",
+      "NHẤT QUÁN THÔNG TIN",
+      "Các bản sao cùng mô tả UAV j phải khớp với quỹ đạo mà UAV j thực hiện.",
+      "Trao đổi quỹ đạo + cập nhật biến đối ngẫu giúp giảm bất đồng giữa các bản sao."
+    ],
+    "equations": [
+      "Y_j^{(i)} = Y_j   với mọi bản sao liên quan"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 8,
+    "title": "2. ADMM: BÀI TOÁN TÁCH KHỐI VÀ LAGRANGIAN",
+    "texts": [
+      "2. ADMM: BÀI TOÁN TÁCH KHỐI VÀ LAGRANGIAN",
+      "Dạng hai khối minh họa nguyên lý; a,b là biến tối ưu, không phải đầu vào vật lý cụ thể.",
+      "F,G gom chi phí và có thể mã hóa ràng buộc; a,b chia các quyết định thành hai khối; Aa+Bb=c liên kết hai khối.\nλ điều chỉnh sức ép thỏa liên kết; ρ>0 phạt sai lệch bình phương; Lρ là hàm dùng trong các bài toán con.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Dạng chung (23)–(24)",
+      "6",
+      "Hạng tuyến tính tích lũy bất đồng; hạng bình phương phạt độ lệch khỏi liên kết."
+    ],
+    "equations": [
+      "min_{a,b} F(a)+G(b)    s.t.    Aa+Bb=c",
+      "L_ρ(a,b,λ)=F(a)+G(b)+λ^T(Aa+Bb−c)",
+      "+\\frac{ρ}{2} ‖Aa+Bb−c‖^2"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 9,
+    "title": "2. ADMM: BA BƯỚC LẶP VÀ ĐIỀU KIỆN DỪNG",
+    "texts": [
+      "2. ADMM: BA BƯỚC LẶP VÀ ĐIỀU KIỆN DỪNG",
+      "Lặp tối ưu khối a → khối b → cập nhật đối ngẫu, có trao đổi thông tin khi phân tán.",
+      "Mỗi vòng lặp l cập nhật a,b rồi điều chỉnh λ theo sai lệch liên kết; ρ chi phối mức phạt và bước cập nhật λ.\nPrimal residual đo sai lệch Aa+Bb−c; dual residual kiểm tra tính ổn định của cập nhật; ngưỡng ε dùng để xét dừng.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Algorithm 1 • ADMM tổng quát",
+      "7",
+      "Dừng khi residual đủ nhỏ hoặc đạt ngân sách tính toán. Bảo đảm hội tụ chuẩn cần các giả thiết thích hợp; không tự áp dụng cho mọi bài toán phi lồi."
+    ],
+    "equations": [
+      "a^{l+1} = argmin_a L_ρ(a,b^l,λ^l)",
+      "b^{l+1} = argmin_b L_ρ(a^{l+1},b,λ^l)",
+      "λ^{l+1} = λ^l + ρ(Aa^{l+1}+Bb^{l+1}−c)"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 10,
+    "title": "3. DCBF: BIỂU DIỄN MIỀN AN TOÀN",
+    "texts": [
+      "3. DCBF: BIỂU DIỄN MIỀN AN TOÀN",
+      "Chọn hàm h sao cho h ≥ 0 tương ứng với điều kiện an toàn muốn duy trì.",
+      "h đo biên an toàn: h=0 là biên, h<0 là vi phạm; C gom các trạng thái được coi là an toàn.\npᵢ,pⱼ,pₒ xác định vị trí; d_safe đặt khoảng cách tối thiểu; W định hình vùng loại trừ qua ‖d‖_W=√(dᵀWd).",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Ý tưởng từ §3.2 và (20)–(21)",
+      "8",
+      "Giữa hai tác nhân",
+      "Khoảng cách không được nhỏ hơn ngưỡng đặt ra theo kích thước và dự phòng.",
+      "Với vật cản ellipsoid",
+      "pₒ là tâm vật cản; W mã hóa hình dạng và phần phóng đại dùng để tránh va chạm."
+    ],
+    "equations": [
+      "x ∈ C   ⇔   h(x) ≥ 0",
+      "h_{ij}=‖p_i−p_j‖−d_{safe}",
+      "h_{io}=‖p_i−p_o‖_W−1"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 11,
+    "title": "3. DCBF: GIỚI HẠN TỐC ĐỘ MẤT AN TOÀN",
+    "texts": [
+      "3. DCBF: GIỚI HẠN TỐC ĐỘ MẤT AN TOÀN",
+      "Không chỉ xét khoảng cách hiện tại: liên kết giá trị h của hai bước dự báo liên tiếp.",
+      "h_t,h_(t+1) theo dõi biên an toàn ở hai bước dự báo; Δh đo mức thay đổi; γ điều chỉnh mức giảm h được phép.\nNếu h₀≥0 và điều kiện được thỏa ở mọi bước, h vẫn không âm tại các bước rời rạc của mô hình.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Khái quát từ (9)",
+      "9",
+      "γ NHỎ",
+      "Giới hạn mức suy giảm h chặt hơn.",
+      "γ LỚN",
+      "Cho phép h giảm nhanh hơn; cần xét tính khả thi và mô hình."
+    ],
+    "equations": [
+      "h_{t+1} ≥ (1−γ)h_t,    0<γ≤1",
+      "Δh_t ≥ −γ h_t"
+    ],
+    "notes": [
+      "Bảo đảm rời rạc dựa trên mô hình, trạng thái đầu an toàn và việc thỏa điều kiện ở mọi bước; không tự suy ra an toàn liên tục hay dưới sai số bám."
+    ]
+  },
+  {
+    "slide": 12,
+    "title": "3. DCBF: SLACK VÀ ĐÁNH ĐỔI TÍNH KHẢ THI",
+    "texts": [
+      "3. DCBF: SLACK VÀ ĐÁNH ĐỔI TÍNH KHẢ THI",
+      "Nới một phần điều kiện khi bài toán quá chặt, đồng thời phạt mức nới trong mục tiêu.",
+      "ω_t≥0 cho phép nới điều kiện DCBF để hỗ trợ tính khả thi; α>0 làm việc sử dụng slack tốn chi phí.\nγ đặt mức suy giảm biên an toàn trước khi nới; ω_t>0 không còn bảo đảm điều kiện gốc. Miền ω≥0 là lựa chọn minh họa.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Khái quát từ (10), (17)",
+      "10",
+      "α lớn hạn chế dùng slack, nhưng không tự khôi phục bảo đảm an toàn. Nếu ω_t > 0, điều kiện DCBF gốc đã bị nới; phải kiểm tra mức vi phạm và chính sách dự phòng."
+    ],
+    "equations": [
+      "h_{t+1}−(1−γ)h_t+ω_t ≥ 0,    ω_t ≥ 0",
+      "J_{slack}=α ∑_t ω_t^2,    α>0"
+    ],
+    "notes": []
+  },
+  {
+    "slide": 13,
+    "title": "GHÉP BA PHẦN THÀNH MỘT CHU KỲ ĐIỀU KHIỂN",
+    "texts": [
+      "GHÉP BA PHẦN THÀNH MỘT CHU KỲ ĐIỀU KHIỂN",
+      "DMPC đặt bài toán • DCBF nằm trong ràng buộc • ADMM phối hợp cách giải.",
+      "xᵢ(k) khởi tạo kế hoạch mới; fᵢ dự báo hệ; uᵢ,₀* chuyển quyết định tối ưu sang tầng thực thi.\nk đánh dấu chu kỳ điều khiển; l đếm các vòng ADMM bên trong chu kỳ, nhằm giảm sai lệch giữa các bản sao.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Tổng hợp §4–5",
+      "11",
+      "1. NHẬN TRẠNG THÁI",
+      "Đo/ước lượng xᵢ(k); cập nhật các lân cận và quỹ đạo dự kiến.",
+      "2. LẬP VÀ GIẢI",
+      "DMPC + ràng buộc DCBF; ADMM lặp local, trao đổi và đối ngẫu.",
+      "3. ÁP DỤNG",
+      "Kiểm tra nghiệm; gửi uᵢ,₀* tới tầng thực thi; nhận phản hồi mới.",
+      "Cần kiểm tra: mô hình dự báo, khả thi solver, sai số đồng thuận, thời gian tính toán và sai số bám. Không coi việc thêm tên ADMM/DCBF là đã có đầy đủ bảo đảm."
+    ],
+    "equations": [],
+    "notes": []
+  },
+  {
+    "slide": 14,
+    "title": "VAI TRÒ CÁC BIẾN VÀ THAM SỐ CHÍNH",
+    "texts": [
+      "VAI TRÒ CÁC BIẾN VÀ THAM SỐ CHÍNH",
+      "Mỗi biến và tham số tác động tới cách giải hoặc điều kiện an toàn như thế nào?",
+      "ρ,ε điều chỉnh quá trình giải; λ được cập nhật để giảm bất đồng; γ,ω,α chi phối điều kiện an toàn và mức nới.\nCác tham số phải được chọn cùng với mô hình, đơn vị, giới hạn tính toán và yêu cầu an toàn của hệ.",
+      "Zhang, Yi & Hong • Sensors 2024, 24(2), 707 • Tổng quát hóa ký hiệu • Bảng ký hiệu tổng quát",
+      "12",
+      "ρ > 0",
+      "Phạt sai lệch liên kết giữa hai khối.",
+      "λ",
+      "Tích lũy phản hồi từ sai lệch liên kết.",
+      "0 < γ ≤ 1",
+      "Đặt mức giảm biên an toàn cho phép.",
+      "ω ≥ 0",
+      "Nới điều kiện khi bài toán quá chặt.",
+      "α > 0",
+      "Tăng chi phí khi dùng slack.",
+      "ε",
+      "Đặt sai lệch chấp nhận khi xét dừng.",
+      "DMPC: nhìn trước • ADMM: thống nhất các bản sao • DCBF: giữ điều kiện an toàn trong tối ưu."
+    ],
+    "equations": [],
+    "notes": [
+      "λ và ω là các biến được tìm hoặc cập nhật; ρ,γ,α,ε là các tham số thiết kế. Điều chỉnh chúng không thay thế việc kiểm tra nghiệm, mô hình và sai số bám."
+    ]
+  }
+]

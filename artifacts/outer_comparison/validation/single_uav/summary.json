@@ -1,0 +1,42 @@
+{
+  "completed": 1,
+  "total": 1,
+  "completion_times": [
+    69.25471057708853
+  ],
+  "finish_time": 69.25471057708853,
+  "min_pair_distance": null,
+  "max_pair_distance": null,
+  "min_boundary_clearance": 14.560001909188902,
+  "min_obstacle_clearance": 36.72999935503432,
+  "max_speed": 8.891667394376215,
+  "max_command_speed": 11.0,
+  "max_input": 24.445172767614714,
+  "violation_steps": {
+    "pair_safety": 0,
+    "boundary_safety": 0,
+    "cohesion": 0,
+    "actual_speed": 0,
+    "obstacle_safety": 0,
+    "input_saturation": 0,
+    "command_speed": 0
+  },
+  "violation_duration_estimates": {
+    "pair_safety": 0.0,
+    "boundary_safety": 0.0,
+    "cohesion": 0.0,
+    "actual_speed": 0.0,
+    "obstacle_safety": 0.0,
+    "input_saturation": 0.0,
+    "command_speed": 0.0
+  },
+  "constraints_passed": true,
+  "all_completed": true,
+  "metrics_scope": "Active UAVs only; completed UAVs exit through terminal disk and leave the domain. Metrics sampled each dt, not a continuous-time guarantee.",
+  "error": null,
+  "simulated_until": 69.26,
+  "integration": "explicit midpoint inner dynamics; outer command zero-order hold",
+  "wall_seconds": 6.999667743999453,
+  "dt": 0.02,
+  "success": true
+}
