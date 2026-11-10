@@ -78,7 +78,10 @@ exact reconstruction of Figure 7. See `docs/PAPER_CONTEXT.md` for paper notes.
 python3 -m drone_bench.cli.run_paper_vb
 ```
 
-Open `artifacts/paper_vb/report.html` for plots, snapshots and interactive replay.
+Open `artifacts/paper_vb_continuous/report.html` for plots, snapshots and interactive replay.
+The historical sampled-tube results remain in `artifacts/paper_vb/`. See
+[the formula corrections](docs/PAPER_FORMULA_FIXES.md) for the continuous geometry,
+bounded NN specification and explicit assumptions used by the current configuration.
 The command exports results even if a constraint fails, returning exit code 2.
 The baseline completes all 27 UAVs but exceeds the actual 11 m/s speed limit;
 command saturation alone does not ensure actual speed compliance.

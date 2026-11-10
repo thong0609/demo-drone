@@ -3,7 +3,7 @@ import math
 from .enhanced_rrt import plan
 from .minimum_snap import minimum_snap, eval_curve
 from ...common.vectors import norm, sub
-from ...tubes.model import Tube
+from ...tubes.polynomial import PolynomialTube
 
 
 def build_paper_tube(env, cfg, seed):
@@ -34,7 +34,10 @@ def build_paper_tube(env, cfg, seed):
     scale*=min(1,safe_scale)*(1-1e-9)
     radii=[eval_curve([radius],s,t)[0]*scale for s,t in parameters]
     if min(radii) < cfg['radius_floor']: raise RuntimeError(f'Minimum-snap tube too narrow: min={min(radii):.3f}, scale={scale:.3f}; revise route')
-    tube=Tube(points,radii); tube.validate(env,margin)
+    curve=dict(centerline_coefficients=coefficients,
+               radius_coefficients=[[v*scale for v in c] for c in radius],durations=durations,
+               sample_parameters=parameters,basis='Bernstein degree 7, local parameter [0,1]')
+    tube=PolynomialTube(points,radii,curve); tube.validate(env,margin)
     report.update(centerline_qp=qp,radius_qp=rr,radius_scale=scale,
                   durations=durations,centerline_coefficients=coefficients,
                   radius_coefficients=[[v*scale for v in c] for c in radius],

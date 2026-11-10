@@ -8,6 +8,8 @@ from ..paper_outer import PaperOuter
 
 class TubeReference:
     def __init__(self,tube,outer_cfg):
+        if hasattr(tube,'curve'):
+            raise ValueError('DMPC sampled/native predictor does not support continuous polynomial tubes; use a sampled benchmark explicitly')
         self.tube=tube;self.geometry=PaperOuter(tube,outer_cfg)
         self.arc=self.geometry.arc;self.length=self.arc[-1]
         self.projection_cache={}

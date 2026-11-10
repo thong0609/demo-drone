@@ -38,7 +38,7 @@ def chart(history,key,title,threshold=None):
 
 def export_results(payload,tube,frames,history,summary,cfg,out):
     specs=[('min_pair_distance','Minimum inter-UAV distance (m)',2*cfg['outer']['rs']),
-           ('min_boundary_clearance','Minimum local tube clearance (m)',cfg['outer']['rs']),
+           ('min_boundary_clearance','Minimum distance to lateral tube boundary (m)',cfg['outer']['rs']),
            ('max_pair_distance','Maximum inter-UAV distance (m)',cfg['outer']['lm']),
            ('max_speed','Maximum actual speed (m/s)',cfg['outer']['vm']),
            ('max_command_speed','Maximum commanded speed (m/s)',cfg['outer']['vm']),

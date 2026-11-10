@@ -1,5 +1,11 @@
 # Thí nghiệm 2: mô phỏng 3D mục V-B
 
+**Cập nhật 2026-11-10:** cấu hình/geometry hiện tại đã được sửa theo audit ở
+[PAPER_FORMULA_FIXES.md](PAPER_FORMULA_FIXES.md). Các mô tả polyline, raw RBF và
+Delta phụ thuộc p bên dưới ghi lại phiên bản tạo artifacts lịch sử. Output mặc
+định mới là `artifacts/paper_vb_continuous`; không dùng các kết quả cũ bên dưới
+như số liệu của code đã sửa.
+
 ## Chạy và xem kết quả
 
 Từ thư mục gốc, không cần cài thư viện ngoài Python 3:
