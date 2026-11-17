@@ -1,0 +1,64 @@
+{
+  "record": {
+    "case": "direction_z_negative",
+    "seed": 17,
+    "horizon": 2,
+    "time": 1,
+    "status": "replanned",
+    "accepted": true,
+    "reference_certified": true,
+    "next_update_certified": true,
+    "horizon_covers_update_interval": true,
+    "update_interval": 1,
+    "elapsed_seconds": 0.2434053100005258,
+    "deadline_missed": false,
+    "length": 419.1016492350119,
+    "min_radius": 24.999999967584262,
+    "curvature_sampled": 0.5931301600863176,
+    "change_mean": 36.5434137698082,
+    "error": null,
+    "reference_reason": null,
+    "next_update_reason": null,
+    "replay": "runs/direction_z_negative/seed_17/H_2/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 3.0349280079298175,
+        "length": 419.1016492350119,
+        "min_radius": 24.999999967584262,
+        "max_radius": 24.9999999744777,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 11.630480748451596,
+        "length": 419.1016492350119,
+        "min_radius": 24.999999967584262,
+        "max_radius": 24.9999999744777,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    }
+  },
+  "quality": {
+    "length": 419.1016492350119,
+    "waypoint_length": 409.4132229372294,
+    "length_inflation": 1.023664175348992,
+    "backward_distance_along_start_goal": 1.0420188704146653,
+    "sampled_max_curvature": 0.5931301600863176,
+    "min_radius": 24.999999967584262,
+    "scope": "sampled shape metrics; curvature is not a certified maximum; backward is diagnostic only"
+  },
+  "change": {
+    "mean": 36.5434137698082,
+    "maximum": 72.42607067872375,
+    "samples": 65
+  }
+}

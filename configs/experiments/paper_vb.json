@@ -59,6 +59,8 @@
     "Q": 10,
     "eta3": 1,
     "rbf_width": 1.5,
+    "basis_norm_bound": 0.5,
+    "stability_witness": [2, 1, 1, 1],
     "rbf_centers": [
       -1,
       0,
@@ -90,6 +92,7 @@
       30
     ],
     "uncertainty_amplitude": 0.15,
+    "uncertainty_model": "velocity",
     "disturbance_amplitude": 0.25
   },
   "simulation": {
@@ -124,6 +127,6 @@
       "inner.eta1",
       "inner.eta2"
     ],
-    "assumptions": "Custom obstacle layout; all other planner settings, gains, physical parameters, RBF architecture, initial states, disturbances, integration and exit handling are explicit reproduction choices, not values reported in the paper."
+    "assumptions": "Custom obstacle layout; all unlisted planner settings, gains, physical parameters, RBF architecture, initial states, disturbances, integration and exit handling are explicit reproduction choices, not values reported in the paper. B=0.5*raw/sqrt(1+norm(raw)^2) ensures a global norm bound for Eq. 77 with Young witnesses [2,1,1,1]. Delta depends on velocity so that Delta-zeta_dot is a function of Z in Eq. 47. Continuous polynomial geometry is retained; conservative uniform radius contraction remains an explicitly declared planning choice."
   }
 }

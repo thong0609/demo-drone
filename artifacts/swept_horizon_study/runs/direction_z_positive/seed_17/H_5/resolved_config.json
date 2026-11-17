@@ -1,0 +1,89 @@
+{
+  "name": "swept_volume_replay_demo",
+  "world": {
+    "id": "swept_volume_open_fixture",
+    "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+    "bounds": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        500,
+        500,
+        300
+      ]
+    ],
+    "start": [
+      60,
+      250,
+      150
+    ],
+    "goal": [
+      440,
+      250,
+      150
+    ],
+    "safety_radius": 5,
+    "obstacles": [],
+    "tube": {
+      "samples": 401,
+      "max_radius": 25,
+      "min_radius": 8,
+      "obstacle_margin": 2,
+      "lateral_amplitude": 65,
+      "vertical_amplitude": 35
+    }
+  },
+  "planner": {
+    "iterations": 150,
+    "step": 45,
+    "neighbor_radius": 85,
+    "goal_bias": 0.16,
+    "goal_radius": 75,
+    "clearance": 22,
+    "edge_spacing": 5,
+    "lambda1": 1,
+    "lambda2": 0.4,
+    "sdf_kappa": 1,
+    "corridor_half_width": 120,
+    "snap_gamma": 2,
+    "sample_spacing": 1.2,
+    "radius_floor": 8,
+    "radius_margin": 3,
+    "duration_policy": "balanced",
+    "reuse_waypoints": true,
+    "seed_policy": "fixed",
+    "max_length_inflation": 1.1
+  },
+  "seed": 17,
+  "horizon": 5,
+  "prediction_margin": 2,
+  "deadline_seconds": 1,
+  "update_times": [
+    1,
+    2
+  ],
+  "obstacles": [
+    {
+      "id": "direction_z_positive",
+      "shape": "sphere",
+      "center": [
+        250,
+        250,
+        90
+      ],
+      "radius": 5,
+      "velocity": [
+        0,
+        0,
+        20
+      ],
+      "timestamp": 0
+    }
+  ],
+  "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+  "case_label": "T\u1eeb d\u01b0\u1edbi \u0111i l\u00ean",
+  "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+}

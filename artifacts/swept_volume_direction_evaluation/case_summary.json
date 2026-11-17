@@ -1,0 +1,1197 @@
+[
+  {
+    "case": "crossing",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.37072412300040014
+  },
+  {
+    "case": "crossing",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3733411060020444
+  },
+  {
+    "case": "crossing",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3561907350012916
+  },
+  {
+    "case": "crossing",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.35607165500186966
+  },
+  {
+    "case": "crossing",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.36805346099936287
+  },
+  {
+    "case": "crossing",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "large",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.36149878400101443
+  },
+  {
+    "case": "large",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3608545530005358
+  },
+  {
+    "case": "large",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3899936260022514
+  },
+  {
+    "case": "large",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.36023573800048325
+  },
+  {
+    "case": "large",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 1,
+    "statuses": {
+      "replanned": 6
+    },
+    "max_seconds": 0.35559826499957126
+  },
+  {
+    "case": "large",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "fast",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3613589189990307
+  },
+  {
+    "case": "fast",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3574966960004531
+  },
+  {
+    "case": "fast",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.396626121000736
+  },
+  {
+    "case": "fast",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.35307731299690204
+  },
+  {
+    "case": "fast",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 3,
+    "statuses": {
+      "replanned": 5,
+      "retained": 1
+    },
+    "max_seconds": 0.38395719599793665
+  },
+  {
+    "case": "fast",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "multiple",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 5,
+    "certified": 5,
+    "statuses": {
+      "planning_failed": 1,
+      "replanned": 4,
+      "retained": 1
+    },
+    "max_seconds": 0.4853967779999948
+  },
+  {
+    "case": "multiple",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.48965964400122175
+  },
+  {
+    "case": "multiple",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.46466265200069756
+  },
+  {
+    "case": "multiple",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.4703154489980079
+  },
+  {
+    "case": "multiple",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.4660765909975453
+  },
+  {
+    "case": "multiple",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "static_clutter",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 5,
+      "retained": 1
+    },
+    "max_seconds": 0.4177786779982853
+  },
+  {
+    "case": "static_clutter",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.41102929699991364
+  },
+  {
+    "case": "static_clutter",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.39453278399741976
+  },
+  {
+    "case": "static_clutter",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.4006907990005857
+  },
+  {
+    "case": "static_clutter",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.40581688200109056
+  },
+  {
+    "case": "static_clutter",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "horizon_1",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.37775808700098423
+  },
+  {
+    "case": "horizon_1",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 6
+    },
+    "max_seconds": 0.39011713700165274
+  },
+  {
+    "case": "horizon_1",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 6
+    },
+    "max_seconds": 0.37790726399907726
+  },
+  {
+    "case": "horizon_1",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 6
+    },
+    "max_seconds": 0.37259641399941756
+  },
+  {
+    "case": "horizon_1",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.36864449700078694
+  },
+  {
+    "case": "horizon_1",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "horizon_6",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3554376419997425
+  },
+  {
+    "case": "horizon_6",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.35475739400135353
+  },
+  {
+    "case": "horizon_6",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.36724219100142363
+  },
+  {
+    "case": "horizon_6",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.36805812799866544
+  },
+  {
+    "case": "horizon_6",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.37052246800158173
+  },
+  {
+    "case": "horizon_6",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "blocked",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 1.8645998352440074e-05
+  },
+  {
+    "case": "blocked",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 1.9513998267939314e-05
+  },
+  {
+    "case": "blocked",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 1.849899854278192e-05
+  },
+  {
+    "case": "blocked",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 1.83810007001739e-05
+  },
+  {
+    "case": "blocked",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 1.8685997929424047e-05
+  },
+  {
+    "case": "blocked",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "future_start",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 2.5735000235727057e-05
+  },
+  {
+    "case": "future_start",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 2.756200046860613e-05
+  },
+  {
+    "case": "future_start",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 2.098500044667162e-05
+  },
+  {
+    "case": "future_start",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 0,
+    "certified": 0,
+    "statuses": {
+      "start_blocked": 6
+    },
+    "max_seconds": 2.143199890269898e-05
+  },
+  {
+    "case": "future_start",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "retained": 6
+    },
+    "max_seconds": 0.004496454002946848
+  },
+  {
+    "case": "future_start",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_y_negative",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 5,
+    "certified": 5,
+    "statuses": {
+      "planning_failed": 1,
+      "replanned": 4,
+      "retained": 1
+    },
+    "max_seconds": 0.26897522899889736
+  },
+  {
+    "case": "direction_y_negative",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 5,
+      "retained": 1
+    },
+    "max_seconds": 0.2614410289970692
+  },
+  {
+    "case": "direction_y_negative",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 5,
+      "retained": 1
+    },
+    "max_seconds": 0.24551929500012193
+  },
+  {
+    "case": "direction_y_negative",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 5,
+      "retained": 1
+    },
+    "max_seconds": 0.25382293299844605
+  },
+  {
+    "case": "direction_y_negative",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2501334510016022
+  },
+  {
+    "case": "direction_y_negative",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_y_positive",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24676739600181463
+  },
+  {
+    "case": "direction_y_positive",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.265543522000371
+  },
+  {
+    "case": "direction_y_positive",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2559994809998898
+  },
+  {
+    "case": "direction_y_positive",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.256127316999482
+  },
+  {
+    "case": "direction_y_positive",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 1,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2475472189980792
+  },
+  {
+    "case": "direction_y_positive",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_x_positive",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2495002760006173
+  },
+  {
+    "case": "direction_x_positive",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.25082233200009796
+  },
+  {
+    "case": "direction_x_positive",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.25695315900156857
+  },
+  {
+    "case": "direction_x_positive",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.252765425000689
+  },
+  {
+    "case": "direction_x_positive",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 5,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24124173900054302
+  },
+  {
+    "case": "direction_x_positive",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_x_negative",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2455418780009495
+  },
+  {
+    "case": "direction_x_negative",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24475587000051746
+  },
+  {
+    "case": "direction_x_negative",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2451719589989807
+  },
+  {
+    "case": "direction_x_negative",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2443015450007806
+  },
+  {
+    "case": "direction_x_negative",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 4,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.250305441000819
+  },
+  {
+    "case": "direction_x_negative",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_z_negative",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24414123099995777
+  },
+  {
+    "case": "direction_z_negative",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.26313132799987216
+  },
+  {
+    "case": "direction_z_negative",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24529389399685897
+  },
+  {
+    "case": "direction_z_negative",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24831658599941875
+  },
+  {
+    "case": "direction_z_negative",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 1,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2546944429996074
+  },
+  {
+    "case": "direction_z_negative",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_z_positive",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24140664500009734
+  },
+  {
+    "case": "direction_z_positive",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24421802099823253
+  },
+  {
+    "case": "direction_z_positive",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2468212140011019
+  },
+  {
+    "case": "direction_z_positive",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.24389885499840602
+  },
+  {
+    "case": "direction_z_positive",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.2566968419996556
+  },
+  {
+    "case": "direction_z_positive",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_diagonal",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 5,
+    "certified": 5,
+    "statuses": {
+      "planning_failed": 1,
+      "replanned": 3,
+      "retained": 2
+    },
+    "max_seconds": 0.28186247700068634
+  },
+  {
+    "case": "direction_diagonal",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.3075607780010614
+  },
+  {
+    "case": "direction_diagonal",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.2662685510003939
+  },
+  {
+    "case": "direction_diagonal",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.2606824750000669
+  },
+  {
+    "case": "direction_diagonal",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "replanned": 6
+    },
+    "max_seconds": 0.2565500199998496
+  },
+  {
+    "case": "direction_diagonal",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  },
+  {
+    "case": "direction_converging",
+    "mode": "baseline",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.5146089530026074
+  },
+  {
+    "case": "direction_converging",
+    "mode": "balanced_only",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.5170264199987287
+  },
+  {
+    "case": "direction_converging",
+    "mode": "balanced_fixed_seed",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.4744382159988163
+  },
+  {
+    "case": "direction_converging",
+    "mode": "improved",
+    "updates": 6,
+    "planned": 6,
+    "certified": 6,
+    "statuses": {
+      "replanned": 4,
+      "retained": 2
+    },
+    "max_seconds": 0.4831171080004424
+  },
+  {
+    "case": "direction_converging",
+    "mode": "instantaneous",
+    "updates": 6,
+    "planned": 6,
+    "certified": 2,
+    "statuses": {
+      "replanned": 3,
+      "retained": 3
+    },
+    "max_seconds": 0.4696000650001224
+  },
+  {
+    "case": "direction_converging",
+    "mode": "static_tube",
+    "updates": 6,
+    "planned": 6,
+    "certified": 0,
+    "statuses": {
+      "static_reference": 6
+    },
+    "max_seconds": 0.0
+  }
+]

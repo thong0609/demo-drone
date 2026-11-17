@@ -1,0 +1,62 @@
+{
+  "report": {
+    "status": "start_blocked",
+    "accepted": false,
+    "action": null,
+    "snapshot": {
+      "valid_from": 2,
+      "valid_until": 2.5,
+      "model": "constant velocity, fixed-radius spheres",
+      "capsules": [
+        {
+          "id": "blocker",
+          "a": [
+            60.0,
+            250.0,
+            150.0
+          ],
+          "b": [
+            60.0,
+            250.0,
+            150.0
+          ],
+          "radius": 6,
+          "physical_radius": 4,
+          "prediction_margin": 2,
+          "observation_timestamp": 2
+        }
+      ]
+    },
+    "previous_check": null,
+    "planning": null,
+    "certificate": null,
+    "attempts": [],
+    "scope": "planner-only; fixed anchors; no swarm handover",
+    "error": "Anchor inside swept/static forbidden region",
+    "elapsed_seconds": 1.746300040394999e-05,
+    "deadline_seconds": 1,
+    "deadline_missed": false,
+    "timing_policy": "measured after completion; not a hard interrupt",
+    "live_activation_approved": false,
+    "update_index": 1,
+    "observations": [
+      {
+        "id": "blocker",
+        "shape": "sphere",
+        "center": [
+          60,
+          250,
+          150
+        ],
+        "radius": 4,
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "timestamp": 2
+      }
+    ]
+  },
+  "tube": null
+}

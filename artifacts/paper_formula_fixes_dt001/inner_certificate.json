@@ -1,0 +1,22 @@
+{
+  "verified": true,
+  "equation": 77,
+  "basis_norm_bound": 0.5,
+  "witness": [
+    2,
+    1,
+    1,
+    1
+  ],
+  "terms": {
+    "K": 1.7999999999999998,
+    "C": 0.7999999999999998,
+    "actor": 0.6500000000000001,
+    "critic": 1.6500000000000001,
+    "filter": 12.333333333333334,
+    "robust": 1.5,
+    "SPEM": 18.4
+  },
+  "minimum": 0.6500000000000001,
+  "scope": "Positivity of printed Eq. 77 only; not a proof of physical speed invariance or all theorem assumptions"
+}

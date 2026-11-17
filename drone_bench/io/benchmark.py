@@ -15,10 +15,12 @@ def make_payload(config, tube):
     report = tube.validate(Environment(config), config['tube']['obstacle_margin'])
     report.update(scenario_id=config['id'], scenario_sha256=fingerprint,
                   samples=len(tube.points), safety_radius=config['safety_radius'])
+    geometry=dict(points=tube.points,radii=tube.radii,
+                  definition=getattr(tube,'representation','piecewise-linear centerline and radius; normal disks'))
+    if hasattr(tube,'curve'): geometry['curve']=tube.curve
     return dict(schema_version=1, units='metres', scenario=config,
                 scenario_sha256=fingerprint, report=report,
-                tube=dict(points=tube.points, radii=tube.radii,
-                          definition='piecewise-linear centerline and radius; normal disks'))
+                tube=geometry)
 
 
 def write_json(path, data):
@@ -35,6 +37,11 @@ def load_benchmark(path):
     if actual != payload['scenario_sha256']:
         raise ValueError('Scenario fingerprint mismatch')
     env = Environment(config)
-    tube = Tube(payload['tube']['points'], payload['tube']['radii'])
+    geometry=payload['tube']
+    if 'curve' in geometry:
+        from ..tubes.polynomial import PolynomialTube
+        tube=PolynomialTube(geometry['points'],geometry['radii'],geometry['curve'])
+    else:
+        tube=Tube(geometry['points'],geometry['radii'])
     tube.validate(env, config['tube']['obstacle_margin'])
     return env, tube

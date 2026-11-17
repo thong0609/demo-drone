@@ -1,0 +1,1739 @@
+{
+  "seeds": [
+    7,
+    17,
+    29
+  ],
+  "modes": [
+    "baseline",
+    "balanced_only",
+    "balanced_fixed_seed",
+    "improved",
+    "instantaneous",
+    "static_tube"
+  ],
+  "cases": [
+    {
+      "name": "crossing",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "large",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 18,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "fast",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -45,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "multiple",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "third",
+            "shape": "sphere",
+            "center": [
+              320,
+              220,
+              190
+            ],
+            "radius": 7,
+            "velocity": [
+              0,
+              10,
+              -8
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "static_clutter",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [
+            {
+              "type": "sphere",
+              "center": [
+                330,
+                260,
+                90
+              ],
+              "radius": 15
+            }
+          ],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "horizon_1",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 1,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "horizon_6",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 6,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "crossing",
+            "shape": "sphere",
+            "center": [
+              240,
+              310,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "small_fast",
+            "shape": "sphere",
+            "center": [
+              350,
+              430,
+              150
+            ],
+            "radius": 3,
+            "velocity": [
+              0,
+              -25,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "blocked",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "blocker",
+            "shape": "sphere",
+            "center": [
+              60,
+              250,
+              150
+            ],
+            "radius": 4,
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "future_start",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "blocker",
+            "shape": "sphere",
+            "center": [
+              60,
+              330,
+              150
+            ],
+            "radius": 4,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then."
+      }
+    },
+    {
+      "name": "direction_y_negative",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_y_negative",
+            "shape": "sphere",
+            "center": [
+              250,
+              310,
+              150
+            ],
+            "radius": 5,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "C\u1eaft ngang t\u1eeb ph\u00eda +Y",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_y_positive",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_y_positive",
+            "shape": "sphere",
+            "center": [
+              250,
+              190,
+              150
+            ],
+            "radius": 5,
+            "velocity": [
+              0,
+              20,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "C\u1eaft ngang t\u1eeb ph\u00eda -Y",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_x_positive",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_x_positive",
+            "shape": "sphere",
+            "center": [
+              190,
+              250,
+              150
+            ],
+            "radius": 5,
+            "velocity": [
+              20,
+              0,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "\u0110i d\u1ecdc c\u00f9ng h\u01b0\u1edbng start \u2192 goal",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_x_negative",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_x_negative",
+            "shape": "sphere",
+            "center": [
+              310,
+              250,
+              150
+            ],
+            "radius": 5,
+            "velocity": [
+              -20,
+              0,
+              0
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "\u0110i d\u1ecdc ng\u01b0\u1ee3c h\u01b0\u1edbng start \u2192 goal",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_z_negative",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_z_negative",
+            "shape": "sphere",
+            "center": [
+              250,
+              250,
+              210
+            ],
+            "radius": 5,
+            "velocity": [
+              0,
+              0,
+              -20
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "T\u1eeb tr\u00ean \u0111i xu\u1ed1ng",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_z_positive",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_z_positive",
+            "shape": "sphere",
+            "center": [
+              250,
+              250,
+              90
+            ],
+            "radius": 5,
+            "velocity": [
+              0,
+              0,
+              20
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "T\u1eeb d\u01b0\u1edbi \u0111i l\u00ean",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_diagonal",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "direction_diagonal",
+            "shape": "sphere",
+            "center": [
+              208,
+              292,
+              126
+            ],
+            "radius": 5,
+            "velocity": [
+              14,
+              -14,
+              8
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "\u0110i ch\u00e9o \u0111\u1ed3ng th\u1eddi theo X/Y/Z",
+        "case_description": "M\u1ed9t c\u1ea7u \u0111i qua t\u00e2m tuy\u1ebfn t\u1ea1i t=3 s; v\u1ecb tr\u00ed ban \u0111\u1ea7u \u0111\u01b0\u1ee3c t\u00ednh t\u1eeb v\u1eadn t\u1ed1c. C\u00e1c ca theo tr\u1ee5c c\u00f3 c\u00f9ng t\u1ed1c \u0111\u1ed9 20 m/s, b\u00e1n k\u00ednh 5 m."
+      }
+    },
+    {
+      "name": "direction_converging",
+      "config": {
+        "name": "swept_volume_replay_demo",
+        "world": {
+          "id": "swept_volume_open_fixture",
+          "description": "Custom static benchmark; dimensions and endpoints from paper V-B, obstacle layout and tube are not a reconstruction of Figure 7.",
+          "bounds": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              500,
+              500,
+              300
+            ]
+          ],
+          "start": [
+            60,
+            250,
+            150
+          ],
+          "goal": [
+            440,
+            250,
+            150
+          ],
+          "safety_radius": 5,
+          "obstacles": [],
+          "tube": {
+            "samples": 401,
+            "max_radius": 25,
+            "min_radius": 8,
+            "obstacle_margin": 2,
+            "lateral_amplitude": 65,
+            "vertical_amplitude": 35
+          }
+        },
+        "planner": {
+          "iterations": 150,
+          "step": 45,
+          "neighbor_radius": 85,
+          "goal_bias": 0.16,
+          "goal_radius": 75,
+          "clearance": 22,
+          "edge_spacing": 5,
+          "lambda1": 1,
+          "lambda2": 0.4,
+          "sdf_kappa": 1,
+          "corridor_half_width": 120,
+          "snap_gamma": 2,
+          "sample_spacing": 1.2,
+          "radius_floor": 8,
+          "radius_margin": 3,
+          "duration_policy": "balanced",
+          "reuse_waypoints": true,
+          "seed_policy": "fixed",
+          "max_length_inflation": 1.1
+        },
+        "seed": 17,
+        "horizon": 3,
+        "prediction_margin": 2,
+        "deadline_seconds": 1,
+        "update_times": [
+          1,
+          2
+        ],
+        "obstacles": [
+          {
+            "id": "from_side",
+            "shape": "sphere",
+            "center": [
+              250,
+              310,
+              150
+            ],
+            "radius": 5,
+            "velocity": [
+              0,
+              -20,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "from_front",
+            "shape": "sphere",
+            "center": [
+              190,
+              250,
+              150
+            ],
+            "radius": 7,
+            "velocity": [
+              20,
+              0,
+              0
+            ],
+            "timestamp": 0
+          },
+          {
+            "id": "from_above",
+            "shape": "sphere",
+            "center": [
+              250,
+              250,
+              195
+            ],
+            "radius": 4,
+            "velocity": [
+              0,
+              0,
+              -15
+            ],
+            "timestamp": 0
+          }
+        ],
+        "provenance": "Synthetic planner-only open-world fixture. Parameters are experimental, not paper values. Constant velocity perfect current measurements. Full route fixed anchors, no swarm handover. Separate replay fixture: altered first radius/update schedule; not the original benchmark. First dynamic planner update at t=1 s; initial static tube is displayed from t=0 until then.",
+        "case_label": "Ba v\u1eadt c\u1ea3n h\u1ed9i t\u1ee5 t\u1eeb ba h\u01b0\u1edbng",
+        "case_description": "Ba c\u1ea7u c\u00f9ng \u0111i t\u1edbi v\u00f9ng gi\u1eefa tuy\u1ebfn t\u1eeb +Y, -X v\u00e0 ph\u00eda tr\u00ean; c\u00f3 nhi\u1ec1u k\u00edch th\u01b0\u1edbc v\u00e0 t\u1ed1c \u0111\u1ed9."
+      }
+    }
+  ],
+  "evaluation": "paired exploratory suite; no separate held-out tuning set",
+  "common_horizon": "each case uses its own configured H, including horizon ablations",
+  "platform": "Linux-6.17.0-1033-oem-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python": "3.12.3",
+  "timing": "wall update including certification; common evaluator timed separately"
+}

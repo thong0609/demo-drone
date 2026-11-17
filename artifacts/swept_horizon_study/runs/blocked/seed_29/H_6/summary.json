@@ -1,0 +1,18 @@
+{
+  "scope": "planner-only; no controller or swarm execution",
+  "config_sha256": "e494b6b337af9af7b551877602d80122341f1a0ba2a7646498deccde8f9a6c8d",
+  "updates": 2,
+  "accepted": 0,
+  "initial_static_planning_seconds": 0.10254200799681712,
+  "initial_static_planning_error": null,
+  "replanned": 0,
+  "retained": 0,
+  "failures": 2,
+  "deadline_misses": 0,
+  "mean_seconds": 2.8530001145554706e-05,
+  "p95_seconds": 4.092700328328647e-05,
+  "p99_seconds": 4.092700328328647e-05,
+  "max_seconds": 4.092700328328647e-05,
+  "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+  "realtime_demonstrated": false
+}

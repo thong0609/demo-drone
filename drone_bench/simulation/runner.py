@@ -23,7 +23,7 @@ def run(env,tube,cfg,output,outer,inner,initial_states=None):
     write_json(out/'initial_state.json',{'positions':positions,'states':states,'agent_ids':active})
     completion_times=[None]*len(states);frames=[];history=[];error=None;failure_time=None
     dt=cfg['simulation']['dt'];record_steps=max(1,round(cfg['simulation']['record_interval']/dt))
-    direction=sub(tube.points[-1],tube.points[-2])
+    direction=tube.sample(tube.spans-1,1)[2] if hasattr(tube,'curve') else sub(tube.points[-1],tube.points[-2])
     final_tangent=mul(direction,1/norm(direction))
     next_update=0
     for step in range(round(cfg['simulation']['duration']/dt)+1):
@@ -70,6 +70,7 @@ def run(env,tube,cfg,output,outer,inner,initial_states=None):
     summary.update(error=error,failure_time=failure_time,simulated_until=history[-1]['time'] if history else 0,
                    integration='explicit midpoint inner dynamics; outer command zero-order hold',
                    wall_seconds=time.monotonic()-start_clock,dt=dt)
+    summary['boundary_metric']='Numerical Euclidean distance to continuous polynomial lateral surface' if hasattr(tube,'curve') else 'Euclidean distance to lateral frustum surfaces of sampled tube'
     summary['success']=summary['all_completed'] and summary['constraints_passed'] and error is None
     write_json(out/'final_state.json',dict(time=summary['simulated_until'],states=states,active=active,completion_times=completion_times))
     write_json(out/'summary.json',summary);write_json(out/'trajectory.json',{'frames':frames,'summary':summary})

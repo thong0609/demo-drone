@@ -1,0 +1,32 @@
+{
+  "study": {
+    "base_config": "configs/experiments/swept_volume_replay.json",
+    "horizons": [
+      0.5,
+      1,
+      2,
+      3,
+      5,
+      6
+    ],
+    "seeds": [
+      7,
+      17,
+      29
+    ],
+    "reference_horizon": 3,
+    "last_update_interval": 1,
+    "case_names": null,
+    "provenance": "A2: only horizon changes within a case/seed pair. Planner settings, observations, update times, safety thresholds and prediction margin remain fixed. Reference-horizon certification is an additional diagnostic, not proof of physical collision when rejected."
+  },
+  "variants": 270,
+  "updates": 540,
+  "varied": "Only horizon within each case/seed; planner/observations/seed/update times/margins unchanged",
+  "platform": "Linux-6.17.0-1033-oem-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "timing": "Planner update only, excludes initial static plan, snapshot creation, evaluation and export",
+  "reference_check": "Extra conservative geometry diagnostic at fixed horizon, not physical collision verdict",
+  "intervals": "Last snapshot uses explicitly configured last_update_interval; no UAV execution",
+  "independent_trials": false,
+  "held_out": false
+}

@@ -1,5 +1,8 @@
 # Shared curve-tube UAV benchmark
 
+Documentation index: [docs/README.md](docs/README.md). Current dynamic-tube work:
+[planner](docs/dynamic_tube/PLANNER.md) and [open issues](docs/dynamic_tube/ISSUES.md).
+
 Static 3D environment and reference tube, independent of planners and controllers.
 
 See [Cấu trúc dự án và cách mở rộng](docs/ARCHITECTURE.md) for the module map and algorithm conventions.
@@ -70,7 +73,7 @@ open entry/exit interfaces, not physical walls.
 Dimensions (500 × 500 × 300 m), start (50,140,50), goal (460,390,170), maximum
 radius (45 m) and UAV safety radius (5 m) follow Section V-B. Obstacle coordinates
 and the sinusoidal reference route are a **custom reproducible benchmark**, not an
-exact reconstruction of Figure 7. See `docs/PAPER_CONTEXT.md` for paper notes.
+exact reconstruction of Figure 7. See `docs/paper/CONTEXT.md` for paper notes.
 
 ## Paper Section V-B simulation
 
@@ -78,12 +81,15 @@ exact reconstruction of Figure 7. See `docs/PAPER_CONTEXT.md` for paper notes.
 python3 -m drone_bench.cli.run_paper_vb
 ```
 
-Open `artifacts/paper_vb/report.html` for plots, snapshots and interactive replay.
+Open `artifacts/paper_vb_continuous/report.html` for plots, snapshots and interactive replay.
+The historical sampled-tube results remain in `artifacts/paper_vb/`. See
+[the formula corrections](docs/paper/FORMULA_FIXES.md) for the continuous geometry,
+bounded NN specification and explicit assumptions used by the current configuration.
 The command exports results even if a constraint fails, returning exit code 2.
 The baseline completes all 27 UAVs but exceeds the actual 11 m/s speed limit;
 command saturation alone does not ensure actual speed compliance.
 
-See [Implementation, equations, assumptions and results](docs/PAPER_VB_IMPLEMENTATION.md).
+See [Implementation, equations, assumptions and results](docs/paper/IMPLEMENTATION.md).
 Planners and controllers are in separate modules; the runner accepts interchangeable
 outer/inner controllers with a common state and diagnostics interface.
 
@@ -99,7 +105,7 @@ benchmark and complete inner initial states; only the outer controller changes.
 The DMPC backend needs gcc and compiles locally; no Python numerical packages or
 network downloads are needed. Run only one branch with `--only dmpc` or
 `--only vector_field`. All safety violations and solver failures remain in the
-reports. See [DMPC implementation](docs/DMPC_IMPLEMENTATION.md) for prediction,
+reports. See [DMPC implementation](docs/experiments/dmpc/IMPLEMENTATION.md) for prediction,
 coordination, solver settings, timing limitations and comparison scope.
 
 DMPC v2 fixes and short-before-full workflow:
@@ -109,5 +115,5 @@ python3 -m drone_bench.cli.validate_dmpc
 python3 -m drone_bench.cli.compare_outer --only dmpc --validation artifacts/dmpc_validation/gates.json
 ```
 
-See [DMPC fixes](docs/DMPC_FIXES.md). Validation fingerprints reject stale gates;
+See [DMPC fixes](docs/experiments/dmpc/FIXES.md). Validation fingerprints reject stale gates;
 failed outer updates save an exact causal checkpoint for one-cycle reproduction.

@@ -1,0 +1,65 @@
+[
+  {
+    "time": 0,
+    "index": -1,
+    "status": "initial",
+    "expired": false,
+    "hasTube": true,
+    "positions": [
+      [
+        240,
+        310,
+        150
+      ],
+      [
+        350,
+        430,
+        150
+      ]
+    ],
+    "drawnMinZ": 149.99999999765365,
+    "label": "initial"
+  },
+  {
+    "time": 1.3165999999999998,
+    "index": 0,
+    "status": "replanned",
+    "expired": false,
+    "hasTube": true,
+    "positions": [
+      [
+        240,
+        283.668,
+        150
+      ],
+      [
+        350,
+        397.08500000000004,
+        150
+      ]
+    ],
+    "drawnMinZ": 67.46911670437684,
+    "label": "after_first"
+  },
+  {
+    "time": 2.316499999999998,
+    "index": 1,
+    "status": "retained",
+    "expired": false,
+    "hasTube": true,
+    "positions": [
+      [
+        240,
+        263.6700000000001,
+        150
+      ],
+      [
+        350,
+        372.08750000000003,
+        150
+      ]
+    ],
+    "drawnMinZ": 67.46911670437684,
+    "label": "after_second"
+  }
+]

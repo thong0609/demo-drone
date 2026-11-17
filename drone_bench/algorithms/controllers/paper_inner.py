@@ -12,6 +12,34 @@ class PaperInner:
         self.c,self.d=cfg,dynamics
         self.features=len(cfg['rbf_centers'])+1
         self.weight_size=3*self.features
+        self.certificate=self.stability_certificate()
+
+    def basis(self,Z):
+        raw=[1.0]+[math.exp(-sum((z-center)**2 for z in Z)/(2*self.c['rbf_width']**2)) for center in self.c['rbf_centers']]
+        bound=self.c.get('basis_norm_bound')
+        if bound is None:return raw  # Explicit compatibility for archived configs.
+        scale=bound/math.sqrt(1+sum(x*x for x in raw))
+        return [scale*x for x in raw]
+
+    def stability_certificate(self):
+        """Check positivity of the printed Eq. 77, not a speed certificate.
+
+        B is unspecified in the paper. Smoothly normalizing the chosen features
+        supplies a global bound, with no change to Eqs. 54–61 or paper gains.
+        """
+        c=self.c;bound=c.get('basis_norm_bound');witness=c.get('stability_witness')
+        if bound is None or witness is None:
+            return dict(verified=False,reason='No bounded-basis/witness specification for Eq. 77')
+        if not math.isfinite(bound) or bound<=0:raise ValueError('Invalid basis norm bound')
+        k1,k2,k3,k4=witness
+        if any(not math.isfinite(k) or k<=0 for k in witness):raise ValueError('Invalid Eq. 77 witness')
+        terms=dict(K=2*(min(c['K'])-.5),C=2*(min(c['C'])-k1*k1*bound*bound/2-1),
+                   actor=2*c['eta1']*(1-k2*k2/4-max(c['C'])**2/(2*c['eta1']*k1*k1)),
+                   critic=2*c['eta2']*(1-k3*k3/4),filter=2*(1/c['filter_tau']-.5),
+                   robust=2*c['eta3']*(1-k4*k4/4),SPEM=2*min(c['P']))
+        if min(terms.values())<=0:raise ValueError(f'Eq. 77 positivity condition failed: {terms}')
+        return dict(verified=True,equation=77,basis_norm_bound=bound,witness=witness,terms=terms,
+                    minimum=min(terms.values()),scope='Positivity of printed Eq. 77 only; not a proof of physical speed invariance or all theorem assumptions')
 
     def initial_state(self,p,v,vc):
         # Eq. 41: zeta(0)=vc(0). xi initialized to make D_hat(0)=0.
@@ -26,7 +54,7 @@ class PaperInner:
         error=[v[k]-zeta[k]-aux[k] for k in range(3)]
         prediction=[error[k]-ehat[k] for k in range(3)]
         Z=[x/s for x,s in zip(v+zeta+dzeta,c['feature_scales'])]
-        basis=[1.0]+[math.exp(-sum((z-center)**2 for z in Z)/(2*c['rbf_width']**2)) for center in c['rbf_centers']]
+        basis=self.basis(Z)
         actor=[sum(wa[j*3+k]*basis[j] for j in range(count)) for k in range(3)]
         critic=[sum(wc[j*3+k]*basis[j] for j in range(count)) for k in range(3)]
         en=math.sqrt(sum(x*x for x in error)); na=math.sqrt(sum(x*x for x in wa));nc=math.sqrt(sum(x*x for x in wc))

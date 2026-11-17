@@ -21,6 +21,6 @@ def initial_positions(tube, cfg, safety_radius):
     if len(result)!=27: raise ValueError('V-B initial swarm must contain 27 UAVs')
     if min(norm(sub(a,b)) for i,a in enumerate(result) for b in result[i+1:])<2*safety_radius:
         raise ValueError('Initial swarm safety regions overlap')
-    if min(tube.project(p)['radial_clearance'] for p in result)<safety_radius:
+    if min(tube.nearest_boundary(p)['distance'] for p in result)<safety_radius or min(tube.project(p)['radial_clearance'] for p in result)<0:
         raise ValueError('Initial swarm violates tube clearance')
     return result

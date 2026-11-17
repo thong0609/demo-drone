@@ -1,0 +1,52 @@
+{
+  "record": {
+    "case": "direction_z_positive",
+    "seed": 17,
+    "horizon": 0.5,
+    "time": 1,
+    "status": "replanned",
+    "accepted": true,
+    "reference_certified": false,
+    "next_update_certified": false,
+    "horizon_covers_update_interval": false,
+    "update_interval": 1,
+    "elapsed_seconds": 0.23411746399870026,
+    "deadline_missed": false,
+    "length": 380.4044408900384,
+    "min_radius": 21.86577966263893,
+    "curvature_sampled": 0.3383440450146867,
+    "change_mean": 1.8411961058624773,
+    "error": null,
+    "reference_reason": "Sample swept-ball containment check failed",
+    "next_update_reason": "Sample swept-ball containment check failed",
+    "replay": "runs/direction_z_positive/seed_17/H_0p5/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": false,
+      "reason": "Sample swept-ball containment check failed",
+      "certificate": null
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": false,
+      "reason": "Sample swept-ball containment check failed",
+      "certificate": null
+    }
+  },
+  "quality": {
+    "length": 380.4044408900384,
+    "waypoint_length": 380.2277599422352,
+    "length_inflation": 1.0004646713533754,
+    "backward_distance_along_start_goal": 0.0,
+    "sampled_max_curvature": 0.3383440450146867,
+    "min_radius": 21.86577966263893,
+    "scope": "sampled shape metrics; curvature is not a certified maximum; backward is diagnostic only"
+  },
+  "change": {
+    "mean": 1.8411961058624773,
+    "maximum": 3.649196354806077,
+    "samples": 65
+  }
+}

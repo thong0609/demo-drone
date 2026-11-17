@@ -1,0 +1,5 @@
+{
+  "source": "/home/tts/prj/simulate-drone/artifacts/paper_vb/initial_state.json",
+  "reused": "positions and physical velocities",
+  "adaptive_initialization": "Eq. 41 zeta=vc; e_hat=e; xi=-C*e; zero weights, auxiliary and robust gains"
+}

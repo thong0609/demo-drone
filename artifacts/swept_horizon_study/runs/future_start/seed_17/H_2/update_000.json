@@ -1,0 +1,71 @@
+{
+  "report": {
+    "status": "planning_failed",
+    "accepted": false,
+    "action": null,
+    "snapshot": {
+      "valid_from": 1,
+      "valid_until": 3,
+      "model": "constant velocity, fixed-radius spheres",
+      "capsules": [
+        {
+          "id": "blocker",
+          "a": [
+            60.0,
+            310.0,
+            150.0
+          ],
+          "b": [
+            60.0,
+            270.0,
+            150.0
+          ],
+          "radius": 6,
+          "physical_radius": 4,
+          "prediction_margin": 2,
+          "observation_timestamp": 1
+        }
+      ]
+    },
+    "previous_check": {
+      "certified": false,
+      "reason": "Sample swept-ball containment check failed"
+    },
+    "planning": null,
+    "certificate": null,
+    "attempts": [
+      {
+        "method": "reuse_waypoints",
+        "accepted": false,
+        "error": "Input waypoint path fails segment clearance"
+      }
+    ],
+    "scope": "planner-only; fixed anchors; no swarm handover",
+    "error": "Enhanced RRT*: no feasible route; increase iterations or revise planner settings",
+    "elapsed_seconds": 0.002872732002288103,
+    "deadline_seconds": 1,
+    "deadline_missed": false,
+    "timing_policy": "measured after completion; not a hard interrupt",
+    "live_activation_approved": false,
+    "update_index": 0,
+    "observations": [
+      {
+        "id": "blocker",
+        "shape": "sphere",
+        "center": [
+          60,
+          310,
+          150
+        ],
+        "radius": 4,
+        "velocity": [
+          0,
+          -20,
+          0
+        ],
+        "timestamp": 1
+      }
+    ]
+  },
+  "tube": null
+}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tube động — replay theo thời gian</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0c1422;color:#dde7f4;font:15px system-ui,sans-serif}
+main{max-width:1400px;margin:auto;padding:24px}h1{font-size:26px;margin:0 0 8px}.muted{color:#9badc5}
+.panel{background:#141f31;border:1px solid #29384e;border-radius:12px;padding:16px;margin-top:16px}
+.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}button,select{background:#243650;color:#fff;border:1px solid #426084;border-radius:6px;padding:8px;cursor:pointer}
+button:hover{background:#35517a}input[type=range]{flex:1;min-width:180px;accent-color:#60bcff}
+.scene{position:relative;height:560px}canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.hint{position:absolute;bottom:12px;left:12px;color:#9badc5;font-size:12px;pointer-events:none}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.value{font-size:19px;margin-top:4px}
+.warn{color:#ffc178}.good{color:#7ce1ba}.events{display:flex;gap:8px;flex-wrap:wrap}.event.active{outline:2px solid #61bdff}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{text-align:left;padding:8px;border-bottom:1px solid #29384e}pre{white-space:pre-wrap}
+@media(max-width:700px){main{padding:12px}.scene{height:400px}h1{font-size:22px}}
+</style>
+<main>
+<h1>Tube động · replay planner</h1>
+<div class="muted">Vật cản chuyển động liên tục; tube cập nhật tại các mốc đã ghi. Dữ liệu nhúng sẵn, mở offline.</div>
+<div class="panel controls">
+<button id="play">▶ Chạy</button><button id="reset">↶ Đầu</button>
+<label>Tốc độ <select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+<label><input type="checkbox" id="loop" checked> Lặp</label>
+<input id="time" aria-label="Thời gian replay" type="range" step="0.01"><strong id="clock"></strong>
+</div>
+<div class="panel controls">
+<button id="prev">← Update trước</button><button id="next">Update sau →</button>
+<button id="view3">Góc 3D</button><button id="viewxy">Nhìn XY</button><button id="viewxz">Nhìn XZ</button>
+<label><input type="checkbox" id="swept" checked> Vùng quét dự báo</label>
+<label><input type="checkbox" id="rings" checked> Tiết diện tube</label>
+</div>
+<div class="panel scene"><canvas id="canvas" aria-label="Replay 3D tube và vật cản"></canvas><div class="hint">Kéo để xoay · cuộn để zoom · nhấn mốc update để xem tube thay đổi</div></div>
+<div class="panel legend"><span><i class="dot" style="background:#65c9ff"></i>Tube đang hiển thị</span><span><i class="dot" style="background:#ff756a"></i>Vật cản tại thời điểm đang xem</span><span><i class="dot" style="background:#eab469"></i>Vùng quét cố định của snapshot</span></div>
+<div class="panel stats" id="stats"></div>
+<div class="panel"><strong>Các mốc cập nhật</strong><div id="events" class="events" style="margin-top:12px"></div><p id="message"></p></div>
+<div class="panel"><strong>Trạng thái vật cản tại thời điểm đang xem</strong><div style="overflow:auto"><table><thead><tr><th>ID</th><th>Tâm XYZ (m)</th><th>Bán kính (m)</th><th>Vận tốc XYZ (m/s)</th></tr></thead><tbody id="obstacles"></tbody></table></div></div>
+<div class="panel muted">Replay hình học, không có drone/plant. Tube đổi rời rạc tại mốc update; không giả lập chuyển tiếp khả thi. Sau khi hết horizon, hình học được giữ để quan sát và được gắn trạng thái hết hiệu lực. Đồng hồ mô phỏng không chờ thời gian solver.</div>
+<details class="panel"><summary>Tổng hợp kết quả planner</summary><pre id="summary"></pre></details>
+</main>
+<script id="replay-data" type="application/json">__REPLAY_DATA__</script>
+<script>
+'use strict';
+const D=JSON.parse(document.getElementById('replay-data').textContent),$=id=>document.getElementById(id);
+const updates=D.updates,C=D.config,W=C.world,first=Math.min(0,updates[0].report.snapshot.valid_from);
+const end=updates.at(-1).report.snapshot.valid_until,slider=$('time');slider.min=first;slider.max=end;slider.value=first;
+let t=first,playing=false,last=0,yaw=-.65,pitch=.65,zoom=1,drag=null;
+const canvas=$('canvas'),ctx=canvas.getContext('2d');let width=1,height=1,scale=1;
+const add=(a,b)=>a.map((x,i)=>x+b[i]),sub=(a,b)=>a.map((x,i)=>x-b[i]),mul=(a,s)=>a.map(x=>x*s);
+const dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const unit=a=>mul(a,1/(Math.hypot(...a)||1));
+const center=mul(add(W.bounds[0],W.bounds[1]),.5),extent=Math.max(...sub(W.bounds[1],W.bounds[0]));
+function project(p){let [x,y,z]=sub(p,center),a=Math.cos(yaw)*x-Math.sin(yaw)*y,b=Math.sin(yaw)*x+Math.cos(yaw)*y;
+return [width/2+a*scale,height/2-(Math.sin(pitch)*b+Math.cos(pitch)*z)*scale,Math.cos(pitch)*b-Math.sin(pitch)*z];}
+function line(points,color,lw=1,dash=[]){if(!points.length)return;ctx.beginPath();points.forEach((p,i)=>{const q=project(p);i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);});ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([]);}
+function label(p,text,color){let q=project(p);ctx.fillStyle=color;ctx.font='12px system-ui';ctx.fillText(text,q[0]+7,q[1]-7);}
+function sphere(p,r,color){let q=project(p);ctx.beginPath();ctx.arc(q[0],q[1],Math.max(2,r*scale),0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
+function circle(p,r,n){let u=unit(cross(n,Math.abs(n[2])<.9?[0,0,1]:[0,1,0])),v=cross(n,u),pts=[];
+for(let j=0;j<=32;j++){let a=j*Math.PI/16;pts.push(add(p,add(mul(u,r*Math.cos(a)),mul(v,r*Math.sin(a)))));}return pts;}
+function tube(g){if(!g)return;line(g.points,'#65c9ff',2.6);
+if(!$('rings').checked)return;let stride=Math.max(1,Math.floor(g.points.length/32));
+for(let i=0;i<g.points.length;i+=stride){let tangent=unit(sub(g.points[Math.min(i+1,g.points.length-1)],g.points[Math.max(0,i-1)]));
+line(circle(g.points[i],g.radii[i],tangent),'#65c9ff66',.8);}}
+function capsule(c){const axis=unit(sub(c.b,c.a));
+line([c.a,c.b],'#eab46925',Math.max(1,2*c.radius*scale));
+for(let j=0;j<=5;j++)line(circle(add(c.a,mul(sub(c.b,c.a),j/5)),c.radius,Math.hypot(...axis)?axis:[1,0,0]),'#eab46988',.8);
+line([c.a,c.b],'#eab469',1,[5,4]);}
+function box(lo,hi,color){let p=[];for(let i=0;i<8;i++)p.push([i&1?hi[0]:lo[0],i&2?hi[1]:lo[1],i&4?hi[2]:lo[2]]);
+for(let i=0;i<8;i++)for(let b=0;b<3;b++)if(!(i&(1<<b)))line([p[i],p[i|(1<<b)]],color);}
+function indexAt(time){let i=-1;for(let j=0;j<updates.length;j++)if(updates[j].report.snapshot.valid_from<=time+1e-9)i=j;return i;}
+function positions(time){return C.obstacles.map(o=>({...o,position:add(o.center,mul(o.velocity,time-o.timestamp))}));}
+function cell(title,value,cls=''){let div=document.createElement('div'),a=document.createElement('div'),b=document.createElement('div');a.textContent=title;a.className='muted';b.textContent=value;b.className='value '+cls;div.append(a,b);return div;}
+function draw(){const rect=canvas.getBoundingClientRect(),dpr=devicePixelRatio||1;
+width=rect.width;height=rect.height;if(canvas.width!==Math.round(width*dpr)||canvas.height!==Math.round(height*dpr)){canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);}
+ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);scale=Math.min(width,height)*.82/extent*zoom;
+box(...W.bounds,'#35465e');
+let origin=W.bounds[0];for(const [axis,name,color] of [[0,'X','#e58b8b'],[1,'Y','#8ee2ae'],[2,'Z','#9aaaff']]){let p=origin.slice();p[axis]+=extent*.18;line([origin,p],color,2);label(p,name,color);}
+for(let o of W.obstacles){if(o.type==='box')box(o.min,o.max,'#657187');else sphere(o.center,o.radius,'#65718788');}
+let i=indexAt(t),u=i<0?{tube:D.initial_tube,report:{status:'initial',accepted:!!D.initial_tube,snapshot:{valid_from:first,valid_until:updates[0].report.snapshot.valid_from,capsules:[]},elapsed_seconds:0}}:updates[i];
+let r=u.report,s=r.snapshot,expired=i>=0&&t>s.valid_until+1e-9;
+if($('swept').checked)for(let c of s.capsules)capsule(c);
+tube(u.tube);
+for(let [p,name] of [[W.start,'Start'],[W.goal,'Goal']]){sphere(p,3,'#b5efcd');label(p,name,'#b5efcd');}
+let obs=positions(t).sort((a,b)=>project(a.position)[2]-project(b.position)[2]);
+for(let o of obs){sphere(o.position,o.radius,'#ff756acc');line([o.position,add(o.position,mul(o.velocity,.6))],'#ffada6',2);label(o.position,o.id,'#ffada6');}
+$('clock').textContent=t.toFixed(2)+' s';slider.value=t;
+$('stats').replaceChildren(cell('Snapshot',i<0?'Tube ban đầu':'#'+i+' · t='+s.valid_from+' s'),cell('Quyết định',r.status,r.accepted?'good':'warn'),cell('Khoảng hiệu lực',s.valid_from+' → '+s.valid_until+' s',expired?'warn':''),cell('Thời gian giải',(r.elapsed_seconds*1000).toFixed(1)+' ms',r.deadline_missed?'warn':''));
+if(typeof r.common_horizon_certified==='boolean')$('stats').append(cell('Kiểm tra horizon chung',r.common_horizon_certified?'Đạt':'Không đạt',r.common_horizon_certified?'good':'warn'));
+let msg=expired?'HẾT HORIZON: snapshot này đã hết hiệu lực; giữ hình học chỉ để quan sát. ':'';
+msg+=u.tube?'Tube giữ nguyên giữa các update; vật cản tiếp tục chuyển động.':'Không có tube được chấp nhận tại snapshot này. ';
+if(r.error)msg+=' '+r.error;$('message').textContent=msg;$('message').className=expired||!r.accepted?'warn':'muted';
+if(r.common_horizon_certified===false){$('message').textContent+=' Candidate này KHÔNG đạt kiểm tra horizon tương lai chung. '+(r.common_horizon_error||'');$('message').className='warn';}
+for(let [j,b] of [...$('events').children].entries())b.classList.toggle('active',j===i);
+$('obstacles').replaceChildren(...positions(t).map(o=>{let tr=document.createElement('tr');for(let text of [o.id,o.position.map(x=>x.toFixed(2)).join(', '),o.radius,o.velocity.join(', ')]){let td=document.createElement('td');td.textContent=text;tr.append(td);}return tr;}));
+// Read-only replay state for browser verification and debugging.
+window.replayState={time:t,index:i,status:r.status,expired,hasTube:!!u.tube,positions:positions(t).map(o=>o.position)};
+}
+function seek(value){t=Math.max(first,Math.min(end,value));draw();}
+function play(value){playing=value;$('play').textContent=playing?'❚❚ Dừng':'▶ Chạy';last=0;}
+$('play').onclick=()=>{if(t>=end)seek(first);play(!playing);draw();};$('reset').onclick=()=>{play(false);seek(first);};
+slider.oninput=()=>{play(false);seek(Number(slider.value));};
+$('prev').onclick=()=>{play(false);let target=[...updates].reverse().find(u=>u.report.snapshot.valid_from<t-1e-6);seek(target?target.report.snapshot.valid_from:first);};
+$('next').onclick=()=>{play(false);let target=updates.find(u=>u.report.snapshot.valid_from>t+1e-6);seek(target?target.report.snapshot.valid_from:end);};
+updates.forEach((u,i)=>{let b=document.createElement('button');b.className='event';b.textContent=u.report.snapshot.valid_from+' s · '+u.report.status;b.onclick=()=>{play(false);seek(u.report.snapshot.valid_from);};$('events').append(b);});
+$('view3').onclick=()=>{yaw=-.65;pitch=.65;zoom=1;draw();};$('viewxy').onclick=()=>{yaw=0;pitch=Math.PI/2;draw();};$('viewxz').onclick=()=>{yaw=0;pitch=0;draw();};
+for(let id of ['swept','rings'])$(id).onchange=draw;
+canvas.onpointerdown=e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);};canvas.onpointerup=()=>drag=null;canvas.onpointercancel=()=>drag=null;
+canvas.onpointermove=e=>{if(!drag)return;yaw+=(e.clientX-drag[0])*.008;pitch=Math.max(-1.57,Math.min(1.57,pitch+(e.clientY-drag[1])*.008));drag=[e.clientX,e.clientY];draw();};
+canvas.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.25,Math.min(6,zoom*Math.exp(-e.deltaY*.001)));draw();},{passive:false});
+$('summary').textContent=JSON.stringify(D.summary,null,2);window.addEventListener('resize',draw);
+function animate(timestamp){if(playing){if(last){let dt=Math.min(.1,(timestamp-last)/1000)*Number($('speed').value);if(t+dt>end){if($('loop').checked)seek(first);else{seek(end);play(false);}}else seek(t+dt);}last=timestamp;}requestAnimationFrame(animate);}
+draw();requestAnimationFrame(animate);
+</script></html>

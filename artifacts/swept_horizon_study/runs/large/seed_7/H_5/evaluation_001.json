@@ -1,0 +1,64 @@
+{
+  "record": {
+    "case": "large",
+    "seed": 7,
+    "horizon": 5,
+    "time": 2,
+    "status": "retained",
+    "accepted": true,
+    "reference_certified": true,
+    "next_update_certified": true,
+    "horizon_covers_update_interval": true,
+    "update_interval": 1,
+    "elapsed_seconds": 0.007082875999913085,
+    "deadline_missed": false,
+    "length": 434.89436346668714,
+    "min_radius": 24.999999971868647,
+    "curvature_sampled": 1.0923963497117029,
+    "change_mean": 0.0,
+    "error": null,
+    "reference_reason": null,
+    "next_update_reason": null,
+    "replay": "runs/large/seed_7/H_5/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 3.5930023636751187,
+        "length": 434.89436346668714,
+        "min_radius": 24.999999971868647,
+        "max_radius": 24.999999975,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 3.5930023636751187,
+        "length": 434.89436346668714,
+        "min_radius": 24.999999971868647,
+        "max_radius": 24.999999975,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    }
+  },
+  "quality": {
+    "length": 434.89436346668714,
+    "waypoint_length": 429.2080078152666,
+    "length_inflation": 1.013248484529366,
+    "backward_distance_along_start_goal": 0.0,
+    "sampled_max_curvature": 1.0923963497117029,
+    "min_radius": 24.999999971868647,
+    "scope": "sampled shape metrics; curvature is not a certified maximum; backward is diagnostic only"
+  },
+  "change": {
+    "mean": 0.0,
+    "maximum": 0.0,
+    "samples": 65
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "horizon": 0.5,
+    "baseline_horizon": 3,
+    "matched_accepted": 78,
+    "mean_length_delta": -16.799653672754385
+  },
+  {
+    "horizon": 1,
+    "baseline_horizon": 3,
+    "matched_accepted": 78,
+    "mean_length_delta": -11.73048097470275
+  },
+  {
+    "horizon": 2,
+    "baseline_horizon": 3,
+    "matched_accepted": 78,
+    "mean_length_delta": -3.0229873537658842
+  },
+  {
+    "horizon": 3,
+    "baseline_horizon": 3,
+    "matched_accepted": 78,
+    "mean_length_delta": 0.0
+  },
+  {
+    "horizon": 5,
+    "baseline_horizon": 3,
+    "matched_accepted": 78,
+    "mean_length_delta": 6.045067734765595
+  },
+  {
+    "horizon": 6,
+    "baseline_horizon": 3,
+    "matched_accepted": 78,
+    "mean_length_delta": 3.400516459751425
+  }
+]

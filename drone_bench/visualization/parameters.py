@@ -51,8 +51,10 @@ def render_parameters(payload, cfg, initial=None, dmpc=None):
                ('Bán kính thiết kế tối đa',scenario.get('tube',{}).get('max_radius','Chưa lưu'),'m','Giới hạn khi lập tube'),
                ('Số mẫu đường tâm',len(points),'điểm','Số điểm trong tube đã đóng băng'),
                ('Khoảng hở tube–vật cản/world được chứng nhận',report.get('certified_obstacle_and_world_margin','Chưa lưu'),'m','Khoảng hở của thể tích bao tube; khác khoảng hở UAV–biên tube')]
-    parts+=['<h3>Tube tĩnh dùng chung</h3>',table(['Thông số','Giá trị','Đơn vị','Ý nghĩa'],tube_rows),
-            '<p>Biên tube trong các metrics là <b>khoảng hở hướng kính cục bộ</b>, chưa phải khoảng cách Euclidean chính xác đến toàn bộ bề mặt cong.</p>']
+    boundary_note=('<p>Biên tube: khoảng cách Euclidean tới mặt bên đa thức, tìm cực tiểu số trên các span liên tục; đĩa đầu/cuối là cửa vào/ra. Đây không phải chứng nhận khoảng cách toàn cục bằng số học khoảng.</p>'
+                   if 'curve' in payload['tube'] else
+                   '<p>Tube lấy mẫu cũ: xem phạm vi metrics trong summary đi kèm; các artifacts lịch sử có thể dùng khoảng hở hướng kính cục bộ.</p>')
+    parts+=['<h3>Tube tĩnh dùng chung</h3>',table(['Thông số','Giá trị','Đơn vị','Ý nghĩa'],tube_rows),boundary_note]
     limits=[]
     labels={'vm':('v_max','m/s','Ngưỡng tốc độ thực để chấm điểm và giới hạn lệnh chung'),
             'rs':('r_s','m','Bán kính an toàn UAV'),
@@ -84,8 +86,9 @@ def render_parameters(payload, cfg, initial=None, dmpc=None):
     inner_labels={'P':'Gain SPEM','C':'Gain LDO','K':'Gain bám vận tốc','gamma_a':'Gain học actor','gamma_c':'Gain học critic',
                   'eta1':'Leakage actor','eta2':'Leakage critic','filter_tau':'Hằng số thời gian bộ lọc — s','Ka':'Gain hệ phụ bù bão hòa',
                   'robust_smoothing':'Tham số làm trơn robust term','Q':'Gain cập nhật thích nghi robust','eta3':'Leakage robust gain',
-                  'rbf_width':'Độ rộng RBF','rbf_centers':'Tâm RBF trên đường chéo không gian đặc trưng','feature_scales':'Scale vector [v, ζ, ζ_dot]'}
-    parts+=['<details><summary><b>Thông số inner loop giữ nguyên</b></summary>',
+                  'rbf_width':'Độ rộng RBF','rbf_centers':'Tâm RBF trên đường chéo không gian đặc trưng','feature_scales':'Scale vector [v, ζ, ζ_dot]',
+                  'basis_norm_bound':'Chặn norm hàm cơ sở NN sau chuẩn hóa','stability_witness':'Các hằng số Young kiểm tra (77); không phải gain outer'}
+    parts+=['<details><summary><b>Thông số inner loop của lần chạy</b></summary>',
             table(['Tên trong cấu hình','Giá trị','Ý nghĩa','Nguồn'],[(k,v,inner_labels.get(k,'Tham số inner'),origin('inner.'+k)) for k,v in inner.items()]),'</details>']
     parts+=['<details><summary><b>Thông số outer vector field</b></summary>',
             table(['Tên trong cấu hình','Giá trị'],list(outer.items())),'</details>']

@@ -1,0 +1,64 @@
+{
+  "record": {
+    "case": "direction_x_positive",
+    "seed": 7,
+    "horizon": 5,
+    "time": 2,
+    "status": "replanned",
+    "accepted": true,
+    "reference_certified": true,
+    "next_update_certified": true,
+    "horizon_covers_update_interval": true,
+    "update_interval": 1,
+    "elapsed_seconds": 0.037629600999935064,
+    "deadline_missed": false,
+    "length": 402.6872326541739,
+    "min_radius": 21.937537188002143,
+    "curvature_sampled": 0.13804092767464093,
+    "change_mean": 2.298790301541351e-12,
+    "error": null,
+    "reference_reason": null,
+    "next_update_reason": null,
+    "replay": "runs/direction_x_positive/seed_7/H_5/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 5.895918892592274,
+        "length": 402.6872326541739,
+        "min_radius": 21.937537188002143,
+        "max_radius": 21.937537237433293,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 8.083136941880738,
+        "length": 402.6872326541739,
+        "min_radius": 21.937537188002143,
+        "max_radius": 21.937537237433293,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    }
+  },
+  "quality": {
+    "length": 402.6872326541739,
+    "waypoint_length": 393.9346520279978,
+    "length_inflation": 1.0222183567277399,
+    "backward_distance_along_start_goal": 0.0,
+    "sampled_max_curvature": 0.13804092767464093,
+    "min_radius": 21.937537188002143,
+    "scope": "sampled shape metrics; curvature is not a certified maximum; backward is diagnostic only"
+  },
+  "change": {
+    "mean": 2.298790301541351e-12,
+    "maximum": 5.767086312158044e-12,
+    "samples": 65
+  }
+}
