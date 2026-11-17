@@ -1,0 +1,276 @@
+[
+  {
+    "slide": 3,
+    "title": "TỪ TRÁNH CỤC BỘ ĐẾN ĐIỀU CHỈNH TUBE",
+    "texts": [
+      "TỪ TRÁNH CỤC BỘ ĐẾN ĐIỀU CHỈNH TUBE",
+      "Câu hỏi: nếu một vật cản động lớn bay vào giữa đàn UAV?",
+      "Các hạng “hút/đẩy” ở đây đóng góp vào vận tốc outer, không phải lực vật lý trực tiếp.\nThêm hạng tránh vật cản là ý tưởng ban đầu; chưa triển khai hoặc kiểm chứng trong thí nghiệm này.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "1",
+      "OUTER HIỆN CÓ",
+      "Hướng tới đích\nTránh UAV khác\nGiữ đàn\nTránh thành tube",
+      "Ý TƯỞNG BAN ĐẦU",
+      "Thêm vector tránh vật cản động vào lệnh vận tốc outer.",
+      "ĐIỂM CẦN CÂN NHẮC",
+      "Vật lớn có thể làm UAV né khác phía; xung đột với giữ đàn và biên tube."
+    ],
+    "equations": [
+      "v_{c,i}=sat_{v_m}(v_g+v_n+v_s+v_t+v_o)"
+    ],
+    "notes": [
+      "Biểu thức là sơ đồ ý tưởng theo các vector đóng góp, không chép nguyên dấu của Eq.34. Vật cản lớn có thể gây tách đàn là nhận định thiết kế cần kiểm chứng, không phải kết quả đã đo hoặc kết luận tác giả."
+    ]
+  },
+  {
+    "slide": 4,
+    "title": "VÌ SAO CHUYỂN SANG NGHIÊN CỨU TUBE ĐỘNG?",
+    "texts": [
+      "VÌ SAO CHUYỂN SANG NGHIÊN CỨU TUBE ĐỘNG?",
+      "Điều chỉnh miền bay chung để cả đàn có hướng tránh thống nhất.",
+      "Tube tròn mô tả bởi đường tâm p_b(s) và bán kính r_b(s); s là tham số dọc đường.\nĐề xuất tube động thuộc nghiên cứu mở rộng; chưa tự kế thừa bảo đảm của controller trên tube đã cho.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "2",
+      "ĐỘNG LỰC NGHIÊN CỨU",
+      "Cập nhật đường tâm/bán kính khi dự báo vật cản sẽ xâm nhập tube.\nGiảm phụ thuộc vào việc từng UAV tự né một phía.",
+      "HƯỚNG MỞ CỦA BÀI BÁO",
+      "Section VI nêu sinh tube realtime trong môi trường động và nâng cao điều khiển phân tán là công việc tương lai.",
+      "Phạm vi hôm nay: thử planner trước; giữ phần điều khiển, cảm biến và truyền thông để sau."
+    ],
+    "equations": [],
+    "notes": [
+      "Nguồn: Section VI, trang 3048 của PDF chính. Không nói tác giả đã chứng minh phương pháp thất bại với mọi vật cản động. A1 chất lượng planner nền được ghi nhận, không phải trọng tâm bắt buộc của nghiên cứu vùng quét."
+    ]
+  },
+  {
+    "slide": 5,
+    "title": "HƯỚNG ĐÃ CHỌN: NÉ VÙNG QUÉT TRONG HORIZON",
+    "texts": [
+      "HƯỚNG ĐÃ CHỌN: NÉ VÙNG QUÉT TRONG HORIZON",
+      "Biến chuyển động dự báo thành một vật cản hình học tạm thời.",
+      "H là khoảng thời gian nhìn trước, không phải đường đi. Vùng quét bao kích thước vật thể và chuyển động.\nTại mỗi update: dùng thông tin mới; giữ tube cũ nếu còn hợp lệ, nếu không thì lập lại.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "3",
+      "1. DỰ BÁO",
+      "Vị trí, kích thước,\nvector vận tốc →\nvùng quét trong H",
+      "2. LẬP TUBE",
+      "Vùng cấm mới →\nenhanced RRT* →\nminimum snap",
+      "3. KIỂM TRA",
+      "Kiểm tra cả tube;\nnhận / giữ / từ chối\nrồi xuất kết quả",
+      "Bảo thủ: cấm cả vùng vật cản có thể đi qua, dù có thời điểm vùng đó đang trống."
+    ],
+    "equations": [],
+    "notes": [
+      "Baseline hiện tại lập lại toàn tuyến với start/goal cố định; không có scheduler có trễ hay chuyển tiếp cho đàn đang bay. Dùng RRT* cải tiến gồm mixed cost và Visual, không đổi thành RRT thường."
+    ]
+  },
+  {
+    "slide": 6,
+    "title": "DỰ BÁO CHUYỂN ĐỘNG VÀ VÙNG QUÉT",
+    "texts": [
+      "DỰ BÁO CHUYỂN ĐỘNG VÀ VÙNG QUÉT",
+      "Bản thử: vật cản cầu, bán kính cố định, vận tốc không đổi.",
+      "τ: thời điểm nhận dữ liệu; h: thời gian dự báo; H: horizon. c_j,v_j,R_j là tâm, vận tốc, bán kính.\nm là đệm dự báo thực nghiệm; B(c,R) là khối cầu tâm c bán kính R. Không phải robust bound đã chứng minh.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "4",
+      "Chuyển động thẳng tạo capsule: một đoạn từ c_j đến c_j + v_jH, được bao bởi bán kính R_j + m."
+    ],
+    "equations": [
+      "c_j(τ+h)=c_j(τ)+v_j h,    0≤h≤H",
+      "S_j(H)=∪_{0≤h≤H} B(c_j(τ)+v_j h,R_j+m)"
+    ],
+    "notes": [
+      "Nguồn lý thuyết: docs/dynamic_tube/PLANNER.md, phần 1, 5 và 14. Cầu bao cho vật thể bất kỳ là ý tưởng có thể mở rộng; chưa có perception hoặc backend cầu bao mesh/point cloud. Bao hình dạng không tự giải quyết dự báo chuyển động."
+    ]
+  },
+  {
+    "slide": 7,
+    "title": "KHOẢNG CÁCH TỚI VÙNG QUÉT CAPSULE",
+    "texts": [
+      "KHOẢNG CÁCH TỚI VÙNG QUÉT CAPSULE",
+      "Từ một điểm p, tìm điểm gần nhất q trên đoạn dự báo.",
+      "a,b: hai đầu đoạn dự báo; α: vị trí chuẩn hóa trên đoạn; clip giới hạn α vào [0,1].\nd_j(p) dương ở ngoài capsule. Nếu a=b, đặt q=a; d(p) lấy min với vật cản tĩnh và biên world.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "5",
+      "Truy vấn giải tích: không cần dựng lại lưới SDF toàn cục để thử planner."
+    ],
+    "equations": [
+      "a=c_j(τ),    b=a+v_jH",
+      "α=clip_{[0,1]}(\\frac{(p−a)^T(b−a)}{‖b−a‖^2}),    q=a+α(b−a)",
+      "d_j(p)=‖p−q‖−(R_j+m)"
+    ],
+    "notes": [
+      "Các truy vấn capsule là 1-Lipschitz. Min primitive distances là khoảng hở chính xác trong vùng trống; không gọi là signed Euclidean distance chính xác bên trong mọi hợp vật cản chồng nhau. Code: environment/swept.py."
+    ]
+  },
+  {
+    "slide": 8,
+    "title": "TUBE MỚI PHẢI TRÁNH CẢ THỂ TÍCH VẬT CẢN",
+    "texts": [
+      "TUBE MỚI PHẢI TRÁNH CẢ THỂ TÍCH VẬT CẢN",
+      "Đường tâm không va chạm chưa đủ nếu tiết diện tube vẫn chạm capsule.",
+      "r_b(s): bán kính tube; m_t: khoảng hở tube yêu cầu. q: tâm bao control points; E: bán kính bao.\nr_upper: cận trên bán kính từ control points. Điều kiện bao cầu là đủ và bảo thủ so với kiểm tra đĩa trực tiếp.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "6",
+      "Chứng nhận liên tục bằng bao convex hull Bernstein và chia đôi đoạn:",
+      "Chưa đủ chứng nhận → chia nhỏ để kiểm tra; không đạt → từ chối candidate."
+    ],
+    "equations": [
+      "d(p_b(s))−r_b(s) ≥ m_t",
+      "d(q)−E−r_{upper} ≥ m_t"
+    ],
+    "notes": [
+      "Nguồn: PLANNER.md phần 5.3–5.5. Prediction margin nằm trong capsule; tube obstacle margin là lớp riêng. Chứng nhận hình học không chứng minh UAV thực bám tube, không chứng nhận injectivity hoặc mọi độ cong của tube."
+    ]
+  },
+  {
+    "slide": 9,
+    "title": "PLANNER NỀN: ENHANCED RRT* THEO BÀI BÁO",
+    "texts": [
+      "PLANNER NỀN: ENHANCED RRT* THEO BÀI BÁO",
+      "Kết hợp độ dài với penalty gần vật cản; Visual thử nối tới ancestor tốt hơn.",
+      "a,b: hai nút; d_k: khoảng hở tại điểm lấy mẫu trên cạnh; λ_1,λ_2: trọng số.\nr_e: bán kính tube tối đa; κ>0 tránh mẫu số bằng 0. Penalty P(d)=0 khi d≥r_e.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "7",
+      "Trong thử nghiệm động, các truy vấn khoảng hở và va chạm xét thêm capsule. Cơ chế mixed cost và Visual vẫn được giữ."
+    ],
+    "equations": [
+      "J(a,b)=λ_1‖b−a‖+λ_2∑_{k=1}^{n}P(d_k)",
+      "P(d)=\\frac{(r_e−d)^3}{d^3+κ},    0≤d<r_e"
+    ],
+    "notes": [
+      "Nguồn bài báo: Algorithms 2–3, Eq.15–16, trang 3040–3041. Kiểm tra cạnh có dự phòng Lipschitz để không bỏ khoảng giữa mẫu. Không tuyên bố bản tái hiện có đúng mọi tham số/solver của tác giả."
+    ]
+  },
+  {
+    "slide": 10,
+    "title": "MINIMUM SNAP: TẠO ĐƯỜNG TÂM VÀ BÁN KÍNH",
+    "texts": [
+      "MINIMUM SNAP: TẠO ĐƯỜNG TÂM VÀ BÁN KÍNH",
+      "Làm trơn waypoint, sau đó kiểm tra lại tube trong world có vùng quét.",
+      "w: hệ số đa thức; σ_b: đường tham chiếu từ waypoint; γ: trọng số bám đường.\nRàng buộc: điều kiện đầu/cuối, nối liên tục tới đạo hàm bậc hai và corridor. Không tự bảo đảm tránh vật cản.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "8",
+      "Đã thử cân bằng thời lượng đoạn để giảm overshoot. Vẫn còn vấn đề độ cong và tự chồng lấn; ghi nhận như hạn chế của planner nền."
+    ],
+    "equations": [
+      "min_w ∫ |σ^{(4)}(t)|^2 dt + γ ∫ |σ(t)−σ_b(t)|^2 dt",
+      "A_{eq}w=b_{eq},    A_{ieq}w≤b_{ieq}"
+    ],
+    "notes": [
+      "Nguồn bài báo: Eq.17–21. Repo dùng Bernstein degree7 và active-set QP, không phải interior-point như tác giả mô tả. Bán kính được suy từ clearance rồi co đồng đều để chứng nhận. Balanced durations sửa fixture 519.4→428.8 m nhưng max curvature lấy mẫu tăng 0.267→2.351 1/m; không gọi là cải thiện toàn diện. A1 không là đóng góp chính."
+    ]
+  },
+  {
+    "slide": 11,
+    "title": "ĐÃ THỬ VẬT CẢN ĐI THEO NHIỀU HƯỚNG",
+    "texts": [
+      "ĐÃ THỬ VẬT CẢN ĐI THEO NHIỀU HƯỚNG",
+      "17 tình huống tổng hợp; lưu cả kết quả đạt và các lần thất bại.",
+      "Một lượt đánh giá là một lần xét tại một snapshot, không phải một chuyến bay hay một lần gọi RRT*.\nSeed điều khiển lấy mẫu; các snapshot trong cùng chuỗi có liên quan, không phải các phép thử độc lập.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "9",
+      "HƯỚNG CHUYỂN ĐỘNG",
+      "Cắt ngang hai phía; dọc tuyến hai chiều; trên xuống, dưới lên; chéo; ba vật cản hội tụ.",
+      "THIẾT KẾ ĐỐI CHỨNG",
+      "3 seed × 2 snapshot × 6 phương án; tổng 612 lượt.\n306 replay, đủ từng trường hợp.",
+      "Bản cải tiến đạt chứng nhận 90/102 lượt; bản đầu 87/102. Đây là kết quả hình học trong bộ thử, chưa phải tỷ lệ đàn bay an toàn."
+    ],
+    "equations": [],
+    "notes": [
+      "Nguồn dữ liệu: artifacts/swept_volume_direction_evaluation/summary.json, protocol.json. Bộ hướng mới có8 ca; 6 ca theo trục cùng bán kính5m tốc độ20m/s, ca chéo21.35m/s, ca hội tụ nhiều kích thước/tốc độ. Không có held-out map độc lập. Các phương án: baseline, balanced_only, balanced_fixed_seed, improved, instantaneous, static_tube."
+    ]
+  },
+  {
+    "slide": 12,
+    "title": "A2: CHỈ THAY HORIZON, GIỮ CÁC ĐIỀU KIỆN KHÁC",
+    "texts": [
+      "A2: CHỈ THAY HORIZON, GIỮ CÁC ĐIỀU KIỆN KHÁC",
+      "15 tình huống × 3 seed × 6 giá trị H × 2 snapshot = 540 lượt.",
+      "Đạt H: tube được chứng nhận trong khoảng đã chọn. “Tới update sau” kiểm tra thêm vùng quét 1 s.\nChiều dài TB chỉ tính khi có tube; mẫu số thành công khác nhau. Không kết luận từ trung bình có điều kiện.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "10",
+      "H (s)",
+      "Đạt H",
+      "Tới update sau",
+      "Độ dài TB (m)",
+      "p95 tính (ms)",
+      "0.5",
+      "81/90",
+      "38/90",
+      "394.91",
+      "460",
+      "1",
+      "81/90",
+      "81/90",
+      "399.80",
+      "457",
+      "2",
+      "78/90",
+      "78/90",
+      "409.26",
+      "459",
+      "3",
+      "78/90",
+      "78/90",
+      "412.29",
+      "451",
+      "5",
+      "78/90",
+      "78/90",
+      "418.33",
+      "446",
+      "6",
+      "78/90",
+      "78/90",
+      "415.69",
+      "439",
+      "H=0.5 s chưa phủ khoảng cập nhật 1 s. Chưa chọn H tối ưu chung."
+    ],
+    "equations": [],
+    "notes": [
+      "Nguồn: artifacts/swept_horizon_study/summary.json và protocol.json. Planner cố định150 RRT iterations, H=.5/1/2/3/5/6, seed7/17/29, snapshot1/2s, prediction margin2m, world500x500x300. p95 đo riêng update, chưa gồm dựng snapshot, nhận thức, truyền thông. Không có UAV thực. H ngắn không đạt phép kiểm tra xa3s không đồng nghĩa sai yêu cầu. Có270 replay và53 tests toàn repo đạt."
+    ]
+  },
+  {
+    "slide": 13,
+    "title": "GIỚI HẠN VÀ PHẠM VI KẾT LUẬN",
+    "texts": [
+      "GIỚI HẠN VÀ PHẠM VI KẾT LUẬN",
+      "Đã đánh giá ý tưởng lập tube trong mô phỏng; chưa khẳng định triển khai realtime.",
+      "Nguồn trạng thái là simulator; dự báo hiện khớp mô hình vận tốc không đổi. Thời gian phụ thuộc máy và tải.\nTube hợp lệ với snapshot lúc bắt đầu chưa tự được bảo đảm hợp lệ lúc dùng sau độ trễ tính toán.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "11",
+      "GIẢ THIẾT HIỆN TẠI",
+      "Biết tâm, bán kính, vận tốc.\nKhông có lỗi cảm biến/truyền thông.\nTube lập lại giữa hai đầu cố định.\nVùng quét có tính bảo thủ.",
+      "VẤN ĐỀ CẦN QUAN TÂM",
+      "Dữ liệu và dự báo có thể sai.\nVật cản di chuyển lúc đang tính.\nTube có thể cần kiểm tra lại khi dùng.\nChưa xét chuyển tiếp và bám của đàn.",
+      "A3: ghi thông số và hạn chế. Phần cứng mục tiêu và bay thử để sau."
+    ],
+    "equations": [],
+    "notes": [
+      "Nguồn: PLANNER.md phần15, ISSUES.md A1/A3/C. Không nói rằng phải bay thực mới đánh giá được planner; chỉ giới hạn tuyên bố đúng mô hình. Hard timeout và scheduler có trễ chưa triển khai. Cầu bao vật thể bất kỳ mới là đề xuất, chưa có module nhận thức/tính cầu bao."
+    ]
+  },
+  {
+    "slide": 14,
+    "title": "TUẦN SAU: THỬ HƯỚNG KHÔNG GIAN – THỜI GIAN",
+    "texts": [
+      "TUẦN SAU: THỬ HƯỚNG KHÔNG GIAN – THỜI GIAN",
+      "Không cấm mọi vị trí vật cản sẽ đi qua; xét đúng thời điểm sử dụng miền bay.",
+      "s: tham số dọc đường; τ: thời gian thực; Ω_occ: các cặp vị trí–thời gian được sử dụng.\nO_j(τ): vật cản tại τ. Biểu thức là điều kiện đủ minh họa cho tube, chưa phải formulation đã chốt.",
+      "Yuan et al. • IEEE TIE 2026 | Thí nghiệm và đề xuất riêng: PLANNER.md",
+      "12",
+      "VIỆC CẦN THỬ",
+      "Chọn biến đường và thời gian.\nCho phép chờ/đổi lịch nếu phù hợp.\nTạo các ca horizon quá bảo thủ.",
+      "CÁCH ĐÁNH GIÁ",
+      "Cùng map, vật cản và seed.\nSo tỷ lệ đạt, đường, thời gian chờ.\nGhi cả thời gian tính và thất bại."
+    ],
+    "equations": [
+      "d(p_b(s),O_j(τ)) ≥ r_b(s)+m,    (s,τ)∈Ω_{occ}"
+    ],
+    "notes": [
+      "Hướng B chưa bắt đầu. Cần xác định Ω_occ/lịch chiếm dụng của đàn trước khi dùng công thức; không mặc định một UAV đại diện đủ cho cả đàn. Chưa quyết định state/input, solver, mô hình động lực hay thời gian tối ưu. Đây là mục tiêu tuần sau do người dùng nêu, không phải kết quả đã đạt hoặc lịch bảo đảm."
+    ]
+  }
+]

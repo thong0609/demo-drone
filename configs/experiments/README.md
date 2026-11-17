@@ -9,6 +9,6 @@ The current `paper_vb.json` uses continuous polynomial geometry, bounded NN
 features with a checked Eq. 77 witness, and a velocity-only assumed uncertainty
 model. These unspecified implementation choices are recorded in provenance;
 they are not additional parameters reported by the authors. See
-`docs/PAPER_FORMULA_FIXES.md`. `paper_vb_legacy.json` preserves the earlier config
+`docs/paper/FORMULA_FIXES.md`. `paper_vb_legacy.json` preserves the earlier config
 used by the historical DMPC comparison. Historical outputs are not overwritten
 by the new default output folder, `artifacts/paper_vb_continuous`.

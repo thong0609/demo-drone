@@ -1,0 +1,45 @@
+{
+  "runs": {
+    "dt002": {
+      "dt": 0.02,
+      "completed": 27,
+      "finish_time": 62.82563256255231,
+      "max_speed": 12.429341539441072,
+      "max_command_speed": 11.000000000000004,
+      "min_pair_distance": 8.85772349864778,
+      "min_boundary_clearance": 5.367094889042343,
+      "max_input": 30,
+      "violation_steps": {
+        "pair_safety": 53,
+        "boundary_safety": 0,
+        "cohesion": 0,
+        "actual_speed": 3068,
+        "obstacle_safety": 0,
+        "input_saturation": 0,
+        "command_speed": 0
+      },
+      "success": false
+    },
+    "dt001": {
+      "dt": 0.01,
+      "completed": 27,
+      "finish_time": 62.564215923678375,
+      "max_speed": 12.29248818557082,
+      "max_command_speed": 11.000000000000004,
+      "min_pair_distance": 9.134826036889754,
+      "min_boundary_clearance": 5.67186083086553,
+      "max_input": 30,
+      "violation_steps": {
+        "pair_safety": 62,
+        "boundary_safety": 0,
+        "cohesion": 0,
+        "actual_speed": 6109,
+        "obstacle_safety": 0,
+        "input_saturation": 0,
+        "command_speed": 0
+      },
+      "success": false
+    }
+  },
+  "interpretation": "Both time steps complete; both violate actual speed and pair safety. These results do not establish convergence, physical constraint guarantees, or exact reproduction of unpublished paper settings."
+}

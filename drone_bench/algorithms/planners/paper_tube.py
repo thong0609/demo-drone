@@ -8,7 +8,23 @@ from ...tubes.polynomial import PolynomialTube
 
 def build_paper_tube(env, cfg, seed):
     path, report=plan(env,cfg,seed)
+    return build_tube_from_path(env, cfg, path, report)
+
+
+def build_tube_from_path(env, cfg, path, report=None):
+    """Smooth an explicit path; default policy preserves the paper baseline.
+
+    Balanced durations are an opt-in swept-planner adaptation, not paper data.
+    """
+    path=[list(p) for p in path]
+    report=dict(report or {}, waypoints=path)
+    if len(path)<2 or any(not env.segment_free(a,b,cfg['clearance'],cfg['edge_spacing'])
+                          for a,b in zip(path,path[1:])):
+        raise ValueError('Input waypoint path fails segment clearance')
     durations=[max(0.5,norm(sub(b,a))/60) for a,b in zip(path,path[1:])]
+    policy=cfg.get('duration_policy','distance')
+    if policy=='balanced': durations=[max(durations)]*len(durations)
+    elif policy!='distance': raise ValueError('Unknown duration policy')
     coefficients=[]; qp=[]
     for axis in range(3):
         c,r=minimum_snap([p[axis] for p in path],durations,cfg['corridor_half_width'],cfg['snap_gamma'])
@@ -38,7 +54,7 @@ def build_paper_tube(env, cfg, seed):
                radius_coefficients=[[v*scale for v in c] for c in radius],durations=durations,
                sample_parameters=parameters,basis='Bernstein degree 7, local parameter [0,1]')
     tube=PolynomialTube(points,radii,curve); tube.validate(env,margin)
-    report.update(centerline_qp=qp,radius_qp=rr,radius_scale=scale,
+    report.update(centerline_qp=qp,radius_qp=rr,radius_scale=scale,duration_policy=policy,
                   durations=durations,centerline_coefficients=coefficients,
                   radius_coefficients=[[v*scale for v in c] for c in radius],
                   basis='Bernstein degree 7, local parameter [0,1]',

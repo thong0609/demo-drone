@@ -1,0 +1,254 @@
+[
+  {
+    "case": "stationary",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "b6a7213fa09710d66be69efdaf0593151d92886e3b46c491ecc3413f11dc1b70",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.1779653560006409,
+      "initial_static_planning_error": null,
+      "replanned": 0,
+      "retained": 4,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.002119743999628554,
+      "p95_seconds": 0.0022270289991865866,
+      "p99_seconds": 0.0022270289991865866,
+      "max_seconds": 0.0022270289991865866,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "crossing_default",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "b4ee7e0a4afb63a53ecddf33f5b2d6b71b4fe276a393e5635c9ae49441f229f6",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.1784349649988144,
+      "initial_static_planning_error": null,
+      "replanned": 1,
+      "retained": 3,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.14036163024957204,
+      "p95_seconds": 0.5525493899986031,
+      "p99_seconds": 0.5525493899986031,
+      "max_seconds": 0.5525493899986031,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "radius_3",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "ba3b67451302b9704c927e2b1c9a7d43463ec7a0d62d6d889c877a1aa3a60735",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.1769528459990397,
+      "initial_static_planning_error": null,
+      "replanned": 2,
+      "retained": 2,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.2894782197499808,
+      "p95_seconds": 0.6010592670008919,
+      "p99_seconds": 0.6010592670008919,
+      "max_seconds": 0.6010592670008919,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "radius_18",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "b26b7281c3c4cdb7dae610cd9bbf56c0cd3223d13c815c621a1ac4541551616c",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.17767529400043713,
+      "initial_static_planning_error": null,
+      "replanned": 2,
+      "retained": 2,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.2852802614997927,
+      "p95_seconds": 0.5953859870005545,
+      "p99_seconds": 0.5953859870005545,
+      "max_seconds": 0.5953859870005545,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "speed_5",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "099bb505933419bf17d9356a2eab01706150ade6eb33b3bd638860e0915de06f",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.17854242800058273,
+      "initial_static_planning_error": null,
+      "replanned": 2,
+      "retained": 2,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.31161460375005845,
+      "p95_seconds": 0.6379863179990934,
+      "p99_seconds": 0.6379863179990934,
+      "max_seconds": 0.6379863179990934,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "speed_45",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "d73c9efc7cc26581f47cc87054c6e9adea4b45fd4f7132f1037d2aa9ff4515bc",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.1786526700016111,
+      "initial_static_planning_error": null,
+      "replanned": 1,
+      "retained": 3,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.1389572204993783,
+      "p95_seconds": 0.5469217419995402,
+      "p99_seconds": 0.5469217419995402,
+      "max_seconds": 0.5469217419995402,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "horizon_1",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "23d354d6ff886dbc100bc07b3e75818cbd54a53dce950fd5f6fbe29e527e7e99",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.17730239799857372,
+      "initial_static_planning_error": null,
+      "replanned": 3,
+      "retained": 1,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.4423698032496759,
+      "p95_seconds": 0.6390772459999425,
+      "p99_seconds": 0.6390772459999425,
+      "max_seconds": 0.6390772459999425,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "horizon_6",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "ed3b5328022439231d2aa1975574b183eaf94998e5d819a2bff549658ad07bfc",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.19003118600085145,
+      "initial_static_planning_error": null,
+      "replanned": 1,
+      "retained": 3,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.13747647824948217,
+      "p95_seconds": 0.5408608599991567,
+      "p99_seconds": 0.5408608599991567,
+      "max_seconds": 0.5408608599991567,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "one_obstacle",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "a179b495233c3f99e6c82f3d8dc6e8dd339252fe696f15f672be40fa0e4267cb",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.17777828100042825,
+      "initial_static_planning_error": null,
+      "replanned": 1,
+      "retained": 3,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.09828981200007547,
+      "p95_seconds": 0.38745507800013,
+      "p99_seconds": 0.38745507800013,
+      "max_seconds": 0.38745507800013,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "no_obstacles",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "6c247f3742d9dd62949ab6047436b37a57ce5a503063dae7b5da12fda59c9c33",
+      "updates": 4,
+      "accepted": 4,
+      "initial_static_planning_seconds": 0.18035677499938174,
+      "initial_static_planning_error": null,
+      "replanned": 0,
+      "retained": 4,
+      "failures": 0,
+      "deadline_misses": 0,
+      "mean_seconds": 0.0007125974998416496,
+      "p95_seconds": 0.0007378329992207,
+      "p99_seconds": 0.0007378329992207,
+      "max_seconds": 0.0007378329992207,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "start_blocked_expected",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "2123bd44028cfff2f790310a8707e0f3881ac5190f553996ac00441fa040d3d9",
+      "updates": 4,
+      "accepted": 0,
+      "initial_static_planning_seconds": 0.1802732490014023,
+      "initial_static_planning_error": null,
+      "replanned": 0,
+      "retained": 0,
+      "failures": 4,
+      "deadline_misses": 0,
+      "mean_seconds": 1.0894000297412276e-05,
+      "p95_seconds": 1.2964001143700443e-05,
+      "p99_seconds": 1.2964001143700443e-05,
+      "max_seconds": 1.2964001143700443e-05,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  },
+  {
+    "case": "future_start_conservative_failure",
+    "summary": {
+      "scope": "planner-only; no controller or swarm execution",
+      "config_sha256": "4215f04e098700cca0f2a4009452dd1ef3e317f80f81e136e2e090b6e3e3f08a",
+      "updates": 4,
+      "accepted": 2,
+      "initial_static_planning_seconds": 0.18067939300090075,
+      "initial_static_planning_error": null,
+      "replanned": 1,
+      "retained": 1,
+      "failures": 2,
+      "deadline_misses": 0,
+      "mean_seconds": 0.10544778850089642,
+      "p95_seconds": 0.4199907800011715,
+      "p99_seconds": 0.4199907800011715,
+      "max_seconds": 0.4199907800011715,
+      "timing_scope": "update_tube including checks; excludes snapshot creation, initial static planning and export",
+      "realtime_demonstrated": false
+    }
+  }
+]

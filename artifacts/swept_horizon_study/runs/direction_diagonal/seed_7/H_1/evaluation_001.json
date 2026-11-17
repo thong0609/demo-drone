@@ -1,0 +1,58 @@
+{
+  "record": {
+    "case": "direction_diagonal",
+    "seed": 7,
+    "horizon": 1,
+    "time": 2,
+    "status": "replanned",
+    "accepted": true,
+    "reference_certified": false,
+    "next_update_certified": true,
+    "horizon_covers_update_interval": true,
+    "update_interval": 1,
+    "elapsed_seconds": 0.04752400099823717,
+    "deadline_missed": false,
+    "length": 397.3842708361021,
+    "min_radius": 23.483818663589023,
+    "curvature_sampled": 0.42383065963102035,
+    "change_mean": 4.088519812460206e-12,
+    "error": null,
+    "reference_reason": "Sample swept-ball containment check failed",
+    "next_update_reason": null,
+    "replay": "runs/direction_diagonal/seed_7/H_1/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": false,
+      "reason": "Sample swept-ball containment check failed",
+      "certificate": null
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": true,
+      "reason": null,
+      "certificate": {
+        "certified_obstacle_and_world_margin": 2.1418890333872938,
+        "length": 397.3842708361021,
+        "min_radius": 23.483818663589023,
+        "max_radius": 23.483818675753955,
+        "certificate": "Bernstein convex-hull subdivision of continuous swept balls"
+      }
+    }
+  },
+  "quality": {
+    "length": 397.3842708361021,
+    "waypoint_length": 390.8882543408672,
+    "length_inflation": 1.0166186024345722,
+    "backward_distance_along_start_goal": 0.24271638635535017,
+    "sampled_max_curvature": 0.42383065963102035,
+    "min_radius": 23.483818663589023,
+    "scope": "sampled shape metrics; curvature is not a certified maximum; backward is diagnostic only"
+  },
+  "change": {
+    "mean": 4.088519812460206e-12,
+    "maximum": 1.0601907180915383e-11,
+    "samples": 65
+  }
+}

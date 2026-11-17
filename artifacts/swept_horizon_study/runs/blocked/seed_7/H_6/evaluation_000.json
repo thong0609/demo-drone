@@ -1,0 +1,40 @@
+{
+  "record": {
+    "case": "blocked",
+    "seed": 7,
+    "horizon": 6,
+    "time": 1,
+    "status": "start_blocked",
+    "accepted": false,
+    "reference_certified": false,
+    "next_update_certified": false,
+    "horizon_covers_update_interval": true,
+    "update_interval": 1,
+    "elapsed_seconds": 1.9840997993014753e-05,
+    "deadline_missed": false,
+    "length": null,
+    "min_radius": null,
+    "curvature_sampled": null,
+    "change_mean": null,
+    "error": "Anchor inside swept/static forbidden region",
+    "reference_reason": "No accepted tube",
+    "next_update_reason": "No accepted tube",
+    "replay": "runs/blocked/seed_7/H_6/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": false,
+      "reason": "No accepted tube",
+      "certificate": null
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": false,
+      "reason": "No accepted tube",
+      "certificate": null
+    }
+  },
+  "quality": {},
+  "change": {}
+}

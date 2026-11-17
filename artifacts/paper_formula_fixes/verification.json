@@ -1,0 +1,14 @@
+{
+  "surface_search": {
+    "queries": 324,
+    "coarse_intervals": 64,
+    "fine_intervals": 256,
+    "max_distance_difference": 5.044853423896711e-13,
+    "time": 0.0,
+    "agent": 13,
+    "max_nearest_point_difference": 1.975195629819095e-06
+  },
+  "physical_initial_states_identical": true,
+  "max_initial_filter_error": 0.0,
+  "source_hash_mismatches": []
+}

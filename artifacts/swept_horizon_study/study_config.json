@@ -1,0 +1,20 @@
+{
+  "base_config": "configs/experiments/swept_volume_replay.json",
+  "horizons": [
+    0.5,
+    1,
+    2,
+    3,
+    5,
+    6
+  ],
+  "seeds": [
+    7,
+    17,
+    29
+  ],
+  "reference_horizon": 3,
+  "last_update_interval": 1,
+  "case_names": null,
+  "provenance": "A2: only horizon changes within a case/seed pair. Planner settings, observations, update times, safety thresholds and prediction margin remain fixed. Reference-horizon certification is an additional diagnostic, not proof of physical collision when rejected."
+}

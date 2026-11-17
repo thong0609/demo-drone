@@ -1,0 +1,32 @@
+[
+  {
+    "mode": "balanced_only",
+    "matched_certified_updates": 87,
+    "mean_length_delta": -17.007740289331085,
+    "mean_change_delta": -6.611925381053327
+  },
+  {
+    "mode": "balanced_fixed_seed",
+    "matched_certified_updates": 87,
+    "mean_length_delta": -16.82596877958134,
+    "mean_change_delta": -9.543326476339677
+  },
+  {
+    "mode": "improved",
+    "matched_certified_updates": 87,
+    "mean_length_delta": -16.82596877958134,
+    "mean_change_delta": -9.543326476339677
+  },
+  {
+    "mode": "instantaneous",
+    "matched_certified_updates": 17,
+    "mean_length_delta": -13.115066877249815,
+    "mean_change_delta": 6.13263478574112
+  },
+  {
+    "mode": "static_tube",
+    "matched_certified_updates": 0,
+    "mean_length_delta": null,
+    "mean_change_delta": null
+  }
+]

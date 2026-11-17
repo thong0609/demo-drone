@@ -1,0 +1,40 @@
+{
+  "record": {
+    "case": "future_start",
+    "seed": 29,
+    "horizon": 2,
+    "time": 1,
+    "status": "planning_failed",
+    "accepted": false,
+    "reference_certified": false,
+    "next_update_certified": false,
+    "horizon_covers_update_interval": true,
+    "update_interval": 1,
+    "elapsed_seconds": 0.002965318999486044,
+    "deadline_missed": false,
+    "length": null,
+    "min_radius": null,
+    "curvature_sampled": null,
+    "change_mean": null,
+    "error": "Enhanced RRT*: no feasible route; increase iterations or revise planner settings",
+    "reference_reason": "No accepted tube",
+    "next_update_reason": "No accepted tube",
+    "replay": "runs/future_start/seed_29/H_2/report.html"
+  },
+  "checks": {
+    "reference": {
+      "horizon": 3,
+      "certified": false,
+      "reason": "No accepted tube",
+      "certificate": null
+    },
+    "next_update": {
+      "horizon": 1,
+      "certified": false,
+      "reason": "No accepted tube",
+      "certificate": null
+    }
+  },
+  "quality": {},
+  "change": {}
+}

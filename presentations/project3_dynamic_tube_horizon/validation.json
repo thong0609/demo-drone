@@ -1,0 +1,15 @@
+{
+  "slides": 14,
+  "xml_and_relationships": "passed",
+  "zip_integrity": "passed",
+  "identity_preserved": true,
+  "layout_warnings": [],
+  "pdf_rendered_with": "LibreOffice 24.2.7.2",
+  "rendered_pages": 14,
+  "source_pptx": "/home/tts/Downloads/Project-III-bao-cao-tien-do-outer-loop-4-trang.pptx",
+  "pptx_sha256": "a6a5571f0c8c0c10fec33d417704448fd421185d76dc23ae7ff9bbcb2948dd8d",
+  "artifacts_used": [
+    "artifacts/swept_volume_direction_evaluation/summary.json",
+    "artifacts/swept_horizon_study/summary.json"
+  ]
+}

@@ -2,3 +2,31 @@ __pycache__/
 *.py[cod]
 .venv/
 .cache/
+
+# Local Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Editor, OS and office temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.~lock.*#
+~$*
+
+# Regenerable presentation previews (keep PPTX/PDF and research results)
+/presentations/*/preview/
+/presentations/*/rendered/
+/presentations/*/contact-sheet.png
+/artifacts/**/verification/*.png

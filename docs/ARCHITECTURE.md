@@ -25,7 +25,7 @@ experiments/                 # Kịch bản chạy và so sánh sẽ thêm sau
 artifacts/                   # Dữ liệu và HTML sinh ra, không sửa bằng tay
 tests/                       # Kiểm thử
 README.md                    # Bắt đầu từ đây
-docs/PAPER_CONTEXT.md        # Ghi chú bài báo
+docs/paper/CONTEXT.md        # Ghi chú bài báo
 ```
 
 ## Luồng hiện tại
@@ -70,7 +70,7 @@ projection = tube.project([50, 140, 50])
 không phụ thuộc vào thuật toán, CLI hay mã trực quan hóa.
 
 Chạy thí nghiệm: `python3 -m drone_bench.cli.run_paper_vb`.
-Chi tiết công thức và giả định: [PAPER_VB_IMPLEMENTATION.md](PAPER_VB_IMPLEMENTATION.md).
+Chi tiết công thức và giả định: [PAPER_VB_IMPLEMENTATION.md](paper/IMPLEMENTATION.md).
 
 
 ## Outer-loop comparison
@@ -79,4 +79,4 @@ Chi tiết công thức và giả định: [PAPER_VB_IMPLEMENTATION.md](PAPER_VB
 coordination and a native QP backend. `cli/compare_outer.py` freezes shared inputs,
 runs either controller with the unchanged inner/plant, and exports comparison.
 `visualization/comparison.py` generates common-axis SVG overlays and a report.
-See [DMPC_IMPLEMENTATION.md](DMPC_IMPLEMENTATION.md).
+See [DMPC_IMPLEMENTATION.md](experiments/dmpc/IMPLEMENTATION.md).

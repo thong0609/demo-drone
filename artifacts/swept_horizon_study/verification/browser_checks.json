@@ -1,0 +1,34 @@
+[
+  {
+    "name": "15 case choices",
+    "passed": true
+  },
+  {
+    "name": "6 horizon choices",
+    "passed": true
+  },
+  {
+    "name": "short horizon switches replay",
+    "passed": true
+  },
+  {
+    "name": "long horizon switches replay",
+    "passed": true
+  },
+  {
+    "name": "comparison rows",
+    "passed": true
+  },
+  {
+    "name": "selected row updated",
+    "passed": true
+  },
+  {
+    "name": "iframe loads chosen horizon",
+    "passed": true
+  },
+  {
+    "name": "embedded replay plays through update",
+    "passed": true
+  }
+]
